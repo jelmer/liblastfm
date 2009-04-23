@@ -5,6 +5,8 @@ Build-Depends: debhelper (>= 7), quilt, ruby, libqt4-dev, libfftw3-dev, libmad0-
 Standards-Version: 3.8.1
 Section: libs
 Homepage: http://www.last.fm/
+Vcs-Browser: http://github.com/jstamp/liblastfm
+Vcs-Git: git://github.com/jstamp/liblastfm.git
 
 Package: liblastfm-dev
 Section: libdevel
