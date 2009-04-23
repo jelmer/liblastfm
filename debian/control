@@ -1,0 +1,35 @@
+Source: liblastfm
+Priority: extra
+Maintainer: John Stamp <jstamp@users.sourceforge.net>
+Build-Depends: debhelper (>= 7), quilt, ruby, libqt4-dev, libfftw3-dev, libmad0-dev, libsamplerate0-dev
+Standards-Version: 3.8.1
+Section: libs
+Homepage: http://www.last.fm/
+
+Package: liblastfm-dev
+Section: libdevel
+Architecture: any
+Depends: liblastfm0 (= ${binary:Version})
+Description: Last.fm's web services library
+ liblastfm is a library provided by Last.fm for interfacing with their web
+ services.
+ .
+ This package contains the header development files and library.
+
+Package: liblastfm0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Last.fm's web services development library
+ liblastfm is a library provided by Last.fm for interfacing with their web
+ services.
+
+Package: liblastfm0-dbg
+Architecture: any
+Section: debug
+Depends: liblastfm0 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Last.fm's web services library
+ liblastfm is a library provided by Last.fm for interfacing with their web
+ services.
+ .
+ This package contains the debugging symbols.

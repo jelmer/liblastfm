@@ -1,0 +1,30 @@
+--- a/admin/Makefile.rb
++++ b/admin/Makefile.rb
+@@ -58,8 +58,8 @@
+ .PHONY: all
+ all: headers
+ 	cd src && $(MAKE)
+-	cd tests && $(MAKE)
+-	cd demos && $(MAKE)
++#	cd tests && $(MAKE)
++#	cd demos && $(MAKE)
+ 
+ EOS
+ 
+--- a/src/lastfm.pro
++++ b/src/lastfm.pro
+@@ -17,10 +17,11 @@
+ macx*:SOURCES -= core/mac/Growl.cpp core/mac/Applescript.cpp
+ 
+ unix{
+-    QMAKE_CXXFLAGS_RELEASE -= -O2 -Os
+-    QMAKE_CXXFLAGS_RELEASE += -fvisibility-inlines-hidden -fvisibility=hidden -O3 -fomit-frame-pointer
++#    QMAKE_CXXFLAGS_RELEASE -= -O2 -Os
++#    QMAKE_CXXFLAGS_RELEASE += -fvisibility-inlines-hidden -fvisibility=hidden -O3 -fomit-frame-pointer
++    QMAKE_CXXFLAGS_RELEASE += -fvisibility-inlines-hidden -fvisibility=hidden -fomit-frame-pointer
+     linux*{
+         QMAKE_CXXFLAGS_RELEASE += -freorder-blocks -fno-reorder-functions -w
+     }    
+-    release:QMAKE_POST_LINK=strip $(DESTDIR)/$(TARGET)
++#    release:QMAKE_POST_LINK=strip $(DESTDIR)/$(TARGET)
+ }

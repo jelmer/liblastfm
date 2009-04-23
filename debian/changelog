@@ -1,0 +1,5 @@
+liblastfm (0.2.1-1) UNRELEASED; urgency=low
+
+  * Initial release (Closes: #524928)
+
+ -- John Stamp <jstamp@users.sourceforge.net>  Mon, 20 Apr 2009 16:52:33 -0700
