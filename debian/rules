@@ -41,9 +41,8 @@ clean: unpatch
 
 	# Add here commands to clean up after the build process.
 	[ ! -f Makefile ] || $(MAKE) clean || true
-	rm -f _bin src/_files.qmake src/_version.h
-	find -name _build -exec rm -rf '{}' \; || true
-	find -name Makefile -exec rm -f '{}' \; || true
+	find . -name _build -o -path ./_bin | xargs -r rm -rf
+	find . -name Makefile -o -path ./src/_files.qmake -o -path ./src/_version.h | xargs -r rm -f
 
 	dh_clean
 
