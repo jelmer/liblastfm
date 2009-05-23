@@ -4,24 +4,17 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-include /usr/share/quilt/quilt.make
-
 version=`ls _bin/lib*.so.* | \
  awk '{if (match($$0,/[0-9]+\.[0-9]+\.[0-9]+$$/)) print substr($$0,RSTART)}'`
 major=`ls _bin/lib*.so.* | \
  awk '{if (match($$0,/\.so\.[0-9]+$$/)) print substr($$0,RSTART+4)}'`
 
+LDFLAGS += "-Wl,--no-undefined -Wl,--as-needed"
 
-configure: patch config-stamp
+configure: config-stamp
 config-stamp:
 	dh_testdir
-	cd src; ../admin/qpp lastfm.pro
-	PREFIX=/usr admin/Makefile.rb `admin/findsrc pro src` > Makefile
-	cd src; qmake-qt4 'CONFIG += nostrip' \
-	                  'QMAKE_CC = $(CC)' \
-	                  'QMAKE_CXX = $(CXX)' \
-	                  'QMAKE_CFLAGS_RELEASE = $(CPPFLAGS) $(CFLAGS)' \
-	                  'QMAKE_CXXFLAGS_RELEASE = $(CPPFLAGS) $(CXXFLAGS)'
+	./configure --release --prefix /usr --no-strip
 	touch $@
 
 
@@ -30,19 +23,17 @@ build-stamp:  configure
 	dh_testdir
 
 	# Add here commands to compile the package.
-	$(MAKE)
+	$(MAKE) headers __src __fingerprint
 
 	touch $@
 
-clean: unpatch
+clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp config-stamp
 
 	# Add here commands to clean up after the build process.
-	[ ! -f Makefile ] || $(MAKE) clean || true
-	find . -name _build -o -path ./_bin | xargs -r rm -rf
-	find . -name Makefile -o -path ./src/_files.qmake -o -path ./src/_version.h | xargs -r rm -f
+	[ ! -f Makefile ] || $(MAKE) distclean || true
 
 	dh_clean
 
@@ -54,8 +45,6 @@ install: build
 
 	# Add here commands to install the package into debian/tmp
 	DESTDIR=$(CURDIR)/debian/tmp $(MAKE) install
-	# Need to copy this one over for now
-	cp _include/lastfm.h debian/tmp/usr/include
 
 
 # Build architecture-independent files here.
