@@ -26,7 +26,7 @@
 
 namespace lastfm
 {
-    class LASTFM_FINGERPRINT_DLLEXPORT Fingerprint
+    class LASTFM_DLLEXPORT Fingerprint
     {
         lastfm::Track m_track;
         QByteArray m_data;
@@ -47,10 +47,7 @@ namespace lastfm
         FingerprintId id() const { return m_id; }
 
         /** The actual data that is the fingerprint, this is about 70kB or so,
-          * there isn't anything in it until you call generate.
-          * HEY! The QByteArray returned is not valid if Fingerprint object is 
-          * deleted or falls off the stack. Seriously! Even if you copy it! Although
-          * you can of course *deep-copy* the data. */
+          * there isn't anything in it until you call generate. */
         QByteArray data() const { return m_data; }
 
         enum Error
@@ -75,7 +72,7 @@ namespace lastfm
         };
 
         /** This is CPU intensive, do it in a thread in your GUI application */
-        void generate() throw( Error );
+        void generate( FingerprintableSource* ) throw( Error );
 
         /** Submits the fingerprint data to Last.fm in order to get a FingerprintId
           * back. You need to wait for the QNetworkReply to finish before you can
@@ -90,7 +87,7 @@ namespace lastfm
     };
 
 
-    class LASTFM_FINGERPRINT_DLLEXPORT CompleteFingerprint : public Fingerprint
+    class CompleteFingerprint : public Fingerprint
     {
     public:
         CompleteFingerprint( const lastfm::Track& t ) : Fingerprint( t )

@@ -19,6 +19,7 @@
 
 #ifndef LASTFM_AUDIOSCROBBLER_H
 #define LASTFM_AUDIOSCROBBLER_H
+
 #include <lastfm/global.h>
 #include <QByteArray>
 #include <QList>
@@ -33,14 +34,14 @@ namespace lastfm
       * version 1.2.1 for a single Last.fm user
       * http://www.audioscrobbler.net/development/protocol/
       */
-    class LASTFM_SCROBBLE_DLLEXPORT Audioscrobbler : public QObject
+    class LASTFM_DLLEXPORT Audioscrobbler : public QObject
     {
         Q_OBJECT
 
     public:
-    	/** You will need to do QCoreApplication::setVersion and 
-    	  * QCoreApplication::setApplicationName for this to work, also you will 
-    	  * need to have set all the keys in the Ws namespace in WsKeys.h */
+        /** You will need to do QCoreApplication::setVersion and 
+          * QCoreApplication::setApplicationName for this to work, also you will 
+          * need to have set all the keys in the Ws namespace in WsKeys.h */
         Audioscrobbler( const QString& clientId );
         ~Audioscrobbler();
 
@@ -103,7 +104,6 @@ namespace lastfm
 }
 
 
-#include <QDebug>
 static inline QDebug operator<<( QDebug d, lastfm::Audioscrobbler::Status status )
 {
     return d << lastfm::qMetaEnumString<lastfm::Audioscrobbler>( status, "Status" );

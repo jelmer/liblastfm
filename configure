@@ -1,120 +1,91 @@
-#!/bin/bash
+#!/usr/bin/ruby
+if ARGV.include? '--help'
+  puts "usage: ./configure [--prefix <dir>] [--no-strip] [--release]"
+  exit
+end
 
-source admin/utils.bash
+cwd = File.dirname( __FILE__ )
+require "#{cwd}/admin/platform.rb"
+require "#{cwd}/admin/which_qmake.rb"
+require "#{cwd}/admin/utils.rb"
 
-#################################################################### functions
-fix_sln()
-{
-    FIRST_BIT='
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "qmake", "qmake", "{780C13D3-8172-4EE0-8FD5-26ED6489851C}"
-	ProjectSection(SolutionItems) = preProject'
-    
-    for x in `admin/findmoose pro` .qmake.cache
-    do
-        FIRST_BIT="$FIRST_BIT
-		$x=$x"
-    done
+begin
+  h1 'Welcome to liblastfm configure'
+  $qmake = which_qmake
+  puts 'Using '+`which #{$qmake}` unless Platform::IMPL == :mswin
 
-    LAST_BIT='
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3FDD67B7-DF67-4F22-8545-755D722794BC}"
-	ProjectSection(SolutionItems) = preProject
-		common\qrc\common.qrc = common\qrc\common.qrc
-		lib\DllExportMacro.h = lib\DllExportMacro.h
-	EndProjectSection
-EndProject'
+  h2 'Determining installation prefix' do
+    if ARGV.include? '--prefix'
+      n=ARGV.index '--prefix'
+      ENV['LFM_PREFIX'] = ARGV[n+1]
+    end
+    ENV['LFM_PREFIX'] = '/usr/local' if ENV['LFM_PREFIX'].nil?
+    if File.exists? ENV['LFM_PREFIX'] and !File.directory? ENV['LFM_PREFIX']
+      abort "Installation prefix exists but isn't a directory: "+ENV['LFM_PREFIX']
+    end
+    puts "Will install to: "+ENV['LFM_PREFIX']
+  end
 
-    echo "$FIRST_BIT$LAST_BIT" >> Last.sln
-}
+  h1 'Generating Build System'
 
+  h2 'Generating .qmake.env' do
+    f = File.new('.qmake.env', 'w')
+    f.write qmake_env('CC', 'QMAKE_CC')
+    f.write qmake_env('CXX', 'QMAKE_CXX')
+    f.write qmake_env('LDFLAGS', 'QMAKE_LFLAGS_RELEASE')
+    f.write qmake_env(['CFLAGS', 'CPPFLAGS'], 'QMAKE_CFLAGS_RELEASE')
+    f.write qmake_env(['CXXFLAGS', 'CPPFLAGS'], 'QMAKE_CXXFLAGS_RELEASE')
+    f.write "QMAKE_CXXFLAGS_RELEASE = -O3 -fomit-frame-pointer\n" if `whoami` == "mxcl\n" #OHAI!
+    f.close
+  end unless Platform::IMPL == :mswin
 
-######################################################################## usage
-header "Configuring Last.fm"
+  h2 "Running qpp..." do
+    Dir.chdir('src') { `ruby ../admin/qpp lastfm.pro` }
+    Dir.chdir('src/fingerprint') { `ruby ../../admin/qpp fingerprint.pro` }
+  end
 
-test -z "$PREFIX" && PREFIX=/usr/local
-export PREFIX
-
-while [ $# -gt 0 ]
-do
-    case "$1" in
-        --debug)
-            echo "The default is --debug, but let's pretend you made a difference anyway.";;
-        --release)
-            echo 'Will optimise and strip binaries.'
-            RELEASE=1;;
-        --bundle)
-            STATIC_LINK_3RDPARTIES_ON_MAC=1;;
-    esac
-    shift
-done
-
-QMAKE=`ruby admin/which_qmake.rb`
-
-if [[ $QMAKE == 'toolow' ]]
-then
-	      ##########################################################################80-->
-	echo "Your version of Qt seems to be too old, we require Qt 4.$min or above."
-	echo
-	echo "It is possible you have Qt3 and Qt4 both installed. Locate your Qt4 installation"
-	echo "and ensure it is placed first in the path, eg:"
-	echo
-	echo "	PATH=/opt/qt4/bin:\$PATH ./configure"
-	echo
-	echo "However this configure script is very basic, perhaps we got it wrong.."
-	echo "Try typing the following, perhaps it will build for you :)"
-	echo
-	echo "	qmake -config release && make"
-	exit 1
-elif [[ $QMAKE == '' ]]
-then
-    echo "Sorry, qmake was not found, is Qt4 installed?"
-    exit 2
-fi
-
-echo 'Using '`which $QMAKE`
-
-
-header 'Generating Build System'
-middle "Running qpp..."
-    cd src
-    ../admin/qpp lastfm.pro || die "Ruby not installed?"
-    cd ..
-    
-
-middle "Generating Makefile..."
-    test -d _include && rm -r _include
-    admin/Makefile.rb `admin/findsrc pro src` > Makefile || die 'Makefile.rb failure :('
-
-middle "Running qmake..."
-    if [ $RELEASE ]
-    then
-        other_args="CONFIG -= debug debug_and_release app_bundle"
-        config=release
+  h2 "Configuring qmake..." do
+    args=Array.new
+    if ARGV.include? '--release'
+      args << '-config release'
+      args << '"CONFIG += app_bundle"' if Platform::IMPL == :macosx and ARGV.include? '--bundle'
     else
-        config=debug
+      args << '-config debug'
+    end
+    if ARGV.include? '--no-strip'
+      args << '"CONFIG += nostrip"'
+    end
+    ENV['LFM_QMAKE'] = "#{$qmake} #{args.join(' ')}"
+  end
+
+  h2 "Generating Makefile..." do
+    hs = Array.new
+    hs << 'global.h'
+    hs << 'core/UrlBuilder.h' << 'core/XmlQuery.h' << 'core/misc.h'
+    hs << 'fingerprint/Fingerprint.h' << 'fingerprint/FingerprintableSource.h'
+    hs << 'radio/RadioStation.h' << 'radio/RadioTuner.h'
+    hs << 'scrobble/Audioscrobbler.h' << 'scrobble/Scrobble.h' << 'scrobble/ScrobblePoint.h'
+    hs << 'types/Track.h types/Mbid.h' << 'types/Artist.h' << 'types/Album.h' << 'types/FingerprintId.h' << 'types/Playlist.h' << 'types/Tag.h' << 'types/User.h types/Xspf.h'
+    hs << 'ws/ws.h' << 'ws/InternetConnectionMonitor.h' << 'ws/NetworkAccessManager.h'
     
-        case `uname` in
-            Darwin)
-                [ $STATIC_LINK_3RDPARTIES_ON_MAC ] || other_args="CONFIG -= app_bundle";;
-            Linux)
-                other_args="CONFIG += warn_off";;
-            *) 
-                #Windows, hopefullly
-                svn co svn+ssh://svn.last.fm/svn/clientside/bin/win _bin
-                other_args="-tp vc"
-                fix_sln
-        esac
-    fi
+    File.new('Makefile', 'w').write `ruby admin/Makefile.rb #{hs.join(' ')}`
+  end
 
-    cd src
-    $QMAKE -config $config "$other_args" || die "Configure failed."
-    cd ../tests
-    $QMAKE -config debug "CONFIG -= app_bundle"
-    cd ../demos
-    $QMAKE -config debug "CONFIG -= app_bundle"
+  puts
+  puts 'Good, your configure is finished! Now type: make'
+  
+rescue QMakeTooOld
+	puts <<-sput
+  Your version of Qt seems to be too old, we require Qt 4.4 or above.
 
-echo
-echo 'Good, your configure is finished!'
+  It is possible you have Qt3 and Qt4 both installed. Locate your Qt4
+  installation and ensure it is placed first in the path, eg:
 
-exit 0
+  	PATH=/opt/qt4/bin:\$PATH ./configure
+
+  sput
+	exit 1
+rescue QMakeNotFound
+  puts "Sorry, qmake was not found, is Qt4 installed?"
+  exit 2
+end

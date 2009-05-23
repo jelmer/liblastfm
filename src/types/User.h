@@ -20,83 +20,85 @@
 #ifndef LASTFM_USER_H
 #define LASTFM_USER_H
 
-#include <lastfm/WsKeys>
+#include <lastfm/ws.h>
 #include <QString>
 #include <QUrl>
 
 
 namespace lastfm
 {
-    class LASTFM_TYPES_DLLEXPORT User
+    class LASTFM_DLLEXPORT User
     {
         QString m_name;
-	
+    
     public:    
         User( const QString& name ) : m_name( name ), m_match( -1.0f )
         {}
 
         operator QString() const { return m_name; }
         QString name() const { return m_name; }
-	
+    
         /** use Tag::list() on the response to get a WeightedStringList */
-    	WsReply* getTopTags() const;
+        QNetworkReply* getTopTags() const;
 
         /** use User::list() on the response to get a QList<User> */
-        WsReply* getFriends() const;
-    	WsReply* getNeighbours() const;
+        QNetworkReply* getFriends() const;
+        QNetworkReply* getNeighbours() const;
     
-        WsReply* getPlaylists() const;
-        WsReply* getTopArtists() const;
-        WsReply* getRecentArtists() const;
-        WsReply* getRecentTracks() const;
+        QNetworkReply* getPlaylists() const;
+        QNetworkReply* getTopArtists() const;
+        QNetworkReply* getRecentArtists() const;
+        QNetworkReply* getRecentTracks() const;
     
-        static QList<User> list( WsReply* );
+        static QList<User> list( QNetworkReply* );
     
     //////
-    	QUrl smallImageUrl() const { return m_smallImage; }
-    	QUrl mediumImageUrl() const { return m_mediumImage; }
-    	QUrl largeImageUrl() const { return m_largeImage; }
-	
+        QUrl smallImageUrl() const { return m_smallImage; }
+        QUrl mediumImageUrl() const { return m_mediumImage; }
+        QUrl largeImageUrl() const { return m_largeImage; }
+    
         QString realName() const { return m_realName; }
     
         /** the user's profile page at www.last.fm */
         QUrl www() const;
     
-    	/** Returns the match between the logged in user and the user which this
-    	  *	object represents (if < 0.0f then not set) */
-    	float match() const { return m_match; }
-	
+        /** Returns the match between the logged in user and the user which this
+          * object represents (if < 0.0f then not set) */
+        float match() const { return m_match; }
+    
     private:
-    	QUrl m_smallImage;
-    	QUrl m_mediumImage;
-    	QUrl m_largeImage;
-	
-    	float m_match;
+        QUrl m_smallImage;
+        QUrl m_mediumImage;
+        QUrl m_largeImage;
+    
+        float m_match;
     
         QString m_realName;
+        
+        QMap<QString, QString> params( const QString& method ) const;
     };
 
 
     /** The authenticated user is special, as some webservices only work for him */
-    class LASTFM_TYPES_DLLEXPORT AuthenticatedUser : public User
+    class LASTFM_DLLEXPORT AuthenticatedUser : public User
     {
         using User::match; //hide as not useful
     
     public:
         /** the authenticated User */
-        AuthenticatedUser() : User( Ws::Username )
+        AuthenticatedUser() : User( lastfm::ws::Username )
         {}    
 
-    	/** you can only get information about the autheticated user */
-    	static WsReply* getInfo();
-	
-    	/** a verbose string, eg. "A man with 36,153 scrobbles" */
-        static QString getInfoString( WsReply* );
+        /** you can only get information about the autheticated user */
+        static QNetworkReply* getInfo();
+    
+        /** a verbose string, eg. "A man with 36,153 scrobbles" */
+        static QString getInfoString( QNetworkReply* );
         
         // pass the result to Artist::list(), if you want the other data 
         // you have to parse the lfm() yourself members
         // http://www.last.fm/api/show?service=388
-        static WsReply* getRecommendedArtists();
+        static QNetworkReply* getRecommendedArtists();
     };
 }
 

@@ -20,13 +20,14 @@
 #include <lastfm.h> // this includes everything in liblastfm, you may prefer 
 #include <QtCore>   // to just include what you need with your project. Still
 #include <QtGui>    // we've given you the option.
-
+#include <QPointer>
+#include <QNetworkReply>
 
 class ArtistList : public QListWidget
 {
     Q_OBJECT
     
-    QPointer<WsReply> reply;
+    QPointer<QNetworkReply> reply;
     QString artist;
     
 public:
@@ -44,15 +45,14 @@ public:
         
         // deleting a reply cancels the request and disconnects all signals
         delete reply;
-        
-        connect( reply = lastfm::Artist( artist ).getSimilar(), 
-                 SIGNAL(finished(WsReply*)), 
-                 SLOT(onGotSimilar( WsReply* )) );
+        reply = lastfm::Artist( artist ).getSimilar();
+        connect( reply, SIGNAL(finished()), SLOT(onGotSimilar()) );
     }
     
 private slots:
-    void onGotSimilar( WsReply* r )
+    void onGotSimilar()
     {
+        QNetworkReply* r = static_cast<QNetworkReply*>(sender());
         // always enclose retrieval functions in a try block, as they will
         // throw if they can't parse the data
         try
@@ -73,6 +73,9 @@ private slots:
         }
         catch (std::runtime_error& e)
         {
+            // if getSimilar() failed to parse the QNetworkReply, then e will 
+            // be of type lastfm::ws::ParseError, which derives 
+            // std::runtime_error
             qWarning() << e.what();
         }
     }
@@ -92,7 +95,7 @@ int main( int argc, char** argv )
     // all you need for non-authenticated webservices is your API key
     // this one is a public one, it can only do artist.getSimilar calls, so
     // I suggest you don't use it :P
-    Ws::ApiKey = "b25b959554ed76058ac220b7b2e0a026";
+    lastfm::ws::ApiKey = "b25b959554ed76058ac220b7b2e0a026";
 
     ArtistList artists;
     artists.getSimilar( "nirvana" );

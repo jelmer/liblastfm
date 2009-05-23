@@ -17,11 +17,9 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-
 #include "Collection.h"
-#include "../core/CoreDir.h"
+#include "../core/misc.h"
 #include <QCoreApplication>
-#include <QDebug>
 #include <QFileInfo>
 #include <QMutexLocker>
 #include <QSqlQuery>
@@ -38,7 +36,7 @@ Collection* Collection::s_instance = NULL;
 Collection::Collection()
 {
     m_db = QSqlDatabase::addDatabase( "QSQLITE", "collection" );
-    m_db.setDatabaseName( CoreDir::data().filePath( "collection.db" ) );
+    m_db.setDatabaseName( lastfm::dir::runtimeData().filePath( "collection.db" ) );
     
     if (!m_db.open()) {
         qDebug() << m_db.lastError();

@@ -18,11 +18,11 @@
  ***************************************************************************/
 
 #include "Fingerprint.h"
+#include "FingerprintableSource.h"
 #include "Collection.h"
 #include "Sha256.h"
-#include "MP3_Source_Qt.h"
-#include "fplib/include/FingerprintExtractor.h"
-#include "../ws/WsRequestBuilder.h"
+#include "fplib/FingerprintExtractor.h"
+#include "../ws/ws.h"
 #include <QFileInfo>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -51,20 +51,22 @@ lastfm::Fingerprint::Fingerprint( const Track& t )
 
 
 void
-lastfm::Fingerprint::generate() throw( Error )
+lastfm::Fingerprint::generate( FingerprintableSource* ms ) throw( Error )
 {
-    QString const path = m_track.url().toLocalFile();
+    //TODO throw if we can't get required metadata from the track object
     
-    if (!QFileInfo( path ).isReadable())
-        throw ReadError;
+//TODO    if (!QFileInfo( path ).isReadable())
+//TODO        throw ReadError;
 
     int sampleRate, bitrate, numChannels;
-    MP3_Source ms;
-    
+
+    if ( !ms )
+        throw ReadError;
+
     try
     {
-        MP3_Source::getInfo( path, m_duration, sampleRate, bitrate, numChannels );
-        ms.init( path );
+        ms->init( m_track.url().toLocalFile() );
+        ms->getInfo( m_duration, sampleRate, bitrate, numChannels );
     }
     catch (std::exception& e)
     {
@@ -76,7 +78,7 @@ lastfm::Fingerprint::generate() throw( Error )
     if (m_duration < k_minTrackDuration)
         throw TrackTooShortError;
     
-    ms.skipSilence();
+    ms->skipSilence();
     
     bool fpDone = false;
     fingerprint::FingerprintExtractor* extractor;
@@ -93,7 +95,7 @@ lastfm::Fingerprint::generate() throw( Error )
             extractor->initForQuery( sampleRate, numChannels, m_duration );
             
             // Skippety skip for as long as the skipper sez (optimisation)
-            ms.skip( extractor->getToSkipMs() );
+            ms->skip( extractor->getToSkipMs() );
             float secsToSkip = extractor->getToSkipMs() / 1000.0f;
             fpDone = extractor->process( 0,
                                          (size_t) sampleRate * numChannels * secsToSkip,
@@ -111,17 +113,18 @@ lastfm::Fingerprint::generate() throw( Error )
     
     while (!fpDone)
     {
-        size_t readData = ms.updateBuffer( pPCMBuffer, PCMBufSize );
+        size_t readData = ms->updateBuffer( pPCMBuffer, PCMBufSize );
         if (readData == 0)
             break;
         
         try
         {
-            fpDone = extractor->process( pPCMBuffer, readData, ms.eof() );
+            fpDone = extractor->process( pPCMBuffer, readData, ms->eof() );
         }
         catch ( const std::exception& e )
         {
             qWarning() << e.what();
+            delete ms;
             delete[] pPCMBuffer;
             throw InternalError;
         }
@@ -134,12 +137,13 @@ lastfm::Fingerprint::generate() throw( Error )
     
     // We succeeded
     std::pair<const char*, size_t> fpData = extractor->getFingerprint();
-    delete extractor;
     
     if (fpData.first == NULL || fpData.second == 0)
         throw InternalError;
     
-    m_data = QByteArray::fromRawData( fpData.first, fpData.second );
+    // Make a deep copy before extractor gets deleted
+    m_data = QByteArray( fpData.first, fpData.second );
+    delete extractor;
 }
 
 
@@ -204,11 +208,11 @@ lastfm::Fingerprint::submit() const
     if (m_data.isEmpty())
         return 0;
     
-	//Parameters understood by the server according to the MIR team: 
-	//{ "trackid", "recordingid", "artist", "album", "track", "duration", 
-	//  "tracknum", "username", "sha256", "ip", "fpversion", "mbid", 
-	//  "filename", "genre", "year", "samplerate", "noupdate", "fulldump" }
-	
+    //Parameters understood by the server according to the MIR team: 
+    //{ "trackid", "recordingid", "artist", "album", "track", "duration", 
+    //  "tracknum", "username", "sha256", "ip", "fpversion", "mbid", 
+    //  "filename", "genre", "year", "samplerate", "noupdate", "fulldump" }
+    
     Track const t = m_track;
     QString const path = t.url().toLocalFile();
     QFileInfo const fi( path );
@@ -230,7 +234,7 @@ lastfm::Fingerprint::submit() const
     url.addEncodedQueryItem( "noupdate", "false" );
     #undef e
 
-	//FIXME: talk to mir about submitting fplibversion
+    //FIXME: talk to mir about submitting fplibversion
 
     QNetworkRequest request( url );
     request.setHeader( QNetworkRequest::ContentTypeHeader, "multipart/form-data; boundary=----------------------------8e61d618ca16" );
@@ -247,7 +251,7 @@ lastfm::Fingerprint::submit() const
     qDebug() << url;
     qDebug() << "Fingerprint size:" << bytes.size() << "bytes";
 
-    return WsRequestBuilder::nam()->post( request, bytes );
+    return lastfm::nam()->post( request, bytes );
 }
 
 

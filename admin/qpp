@@ -8,7 +8,6 @@ require 'find'
 require 'ftools'
 require "#{cwd}/platform.rb"
 
-
 if ARGV[0] && File.file?( ARGV[0] )
   File.open( ARGV[0] ).each_line do |line|
     line.chomp!
@@ -18,9 +17,9 @@ if ARGV[0] && File.file?( ARGV[0] )
       exit if matches[1].downcase == 'subdirs'
     end
 
-    matches = /^\s*VERSION += +((\d\.){0,2}\d)/.match( line )
+    matches = /(\s|\:|\{)VERSION\s*=\s*((\d\.){0,2}\d)$/.match( line )
     if !matches.nil? && !File.file?( "_version.h" )
-      File.open( "_version.h", 'w' ) { |f| f.write( "#define VERSION \"#{matches[1]}\"\n" ) }
+      File.open( "_version.h", 'w' ) { |f| f.write( "#define VERSION \"#{matches[2]}\"\n" ) }
     end
   end
 end
@@ -39,8 +38,9 @@ elsif !File.directory?( dir )
 end
 
 
-def find_sources( dir )
+def find_sources(dir)
   Find.find( dir ) do |path|
+    next if path == dir # oddly neccessary
     if File.directory? path
       excludes = ['.svn', 'tests', '_build']
       case Platform::IMPL
@@ -49,6 +49,7 @@ def find_sources( dir )
         else excludes << 'win' << 'mac'
       end
       Find.prune if excludes.include? File.basename path
+      Find.prune if Dir["#{path}/*.pro"].length > 0 #don't recurse into dirs with pro files in
     elsif File.file? path
       case Platform::IMPL
         when :macosx then next if /_mac\.cpp$/.match path

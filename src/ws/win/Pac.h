@@ -23,27 +23,30 @@
 #include <QNetworkProxy>
 #include <windows.h>
 #include <winhttp.h>
+class QNetworkRequest;
+ 
+namespace lastfm
+{
+    /** @brief simple wrapper to do per url automatic proxy detection 
+      * @author <doug@last.fm>
+      */
+    class Pac
+    {    
+        HINTERNET m_hSession;
+        bool m_bFailed;
 
+    public:
+        Pac();
+        ~Pac();
 
-/** @brief simple wrapper to do per url automatic proxy detection 
-  * @author <doug@last.fm>
-  */
-class Pac
-{    
-	HINTERNET m_hSession;
-    bool m_bFailed;
+        QNetworkProxy resolve( const QNetworkRequest& url, const wchar_t* pacUrl );
 
-public:
-	Pac();
-	~Pac();
+        void resetFailedState() { m_bFailed = false; }
 
-	QNetworkProxy resolve( const class QNetworkRequest& url, const wchar_t* pacUrl );
-
-    void resetFailedState() { m_bFailed = false; }
-
-private:
-    Pac( const Pac& ); //undefined
-    Pac operator=( const Pac& ); //undefined
-};
+    private:
+        Pac( const Pac& ); //undefined
+        Pac operator=( const Pac& ); //undefined
+    };
+}
 
 #endif 

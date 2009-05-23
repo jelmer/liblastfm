@@ -28,7 +28,7 @@
 
 namespace lastfm
 {
-    class LASTFM_TYPES_DLLEXPORT Artist
+    class LASTFM_DLLEXPORT Artist
     {
         QString m_name;
         QList<QUrl> m_images;
@@ -45,43 +45,45 @@ namespace lastfm
 
         bool isNull() const { return m_name.isEmpty(); }
         
-    	/** the url for this artist's page at www.last.fm */
-    	QUrl www() const;
+        /** the url for this artist's page at www.last.fm */
+        QUrl www() const;
     
-    	bool operator==( const Artist& that ) const { return m_name == that.m_name; }
-    	bool operator!=( const Artist& that ) const { return m_name != that.m_name; }
-	
+        bool operator==( const Artist& that ) const { return m_name == that.m_name; }
+        bool operator!=( const Artist& that ) const { return m_name != that.m_name; }
+    
         operator QString() const 
         {
             /** if no artist name is set, return the musicbrainz unknown identifier
               * in case some part of the GUI tries to display it anyway. Note isNull
-              * returns false still. So you should have queried this! */
+              * returns false still. So you should have queried that! */
             return m_name.isEmpty() ? "[unknown]" : m_name;
         }
-        QString name() const { return QString(*this); }	
+        QString name() const { return QString(*this); } 
     
-        WsReply* share( const class User& recipient, const QString& message = "" );
+        QNetworkReply* share( const class User& recipient, const QString& message = "" );
 
-    	WsReply* getInfo() const;
-        static Artist getInfo( WsReply* );
-	
-    	WsReply* getSimilar() const;
-    	/** The match percentage is returned from last.fm as a 4 significant 
-    	  * figure floating point value. So we multply it by 100 to make an 
-    	  * integer in the range of 0 to 10,000. This is possible confusing 
-    	  * for you, but I felt it best not to lose any precision, and floats 
-    	  * aren't much fun. */
-    	static QMap<int, QString> getSimilar( WsReply* );
+        QNetworkReply* getInfo() const;
+        static Artist getInfo( QNetworkReply* );
+    
+        QNetworkReply* getSimilar() const;
+        /** The match percentage is returned from last.fm as a 4 significant 
+          * figure floating point value. So we multply it by 100 to make an 
+          * integer in the range of 0 to 10,000. This is possible confusing 
+          * for you, but I felt it best not to lose any precision, and floats 
+          * aren't much fun. */
+        static QMap<int, QString> getSimilar( QNetworkReply* );
     
         /** use Tag::list to get the tag list out of the finished reply */
-        WsReply* getTags() const;
-        WsReply* getTopTags() const;
+        QNetworkReply* getTags() const;
+        QNetworkReply* getTopTags() const;
     
         /** Last.fm dictates that you may submit at most 10 of these */
-        WsReply* addTags( const QStringList& ) const;
-	
-    	WsReply* search( int limit = -1 ) const;
-    	static QList<Artist> list( WsReply* );
+        QNetworkReply* addTags( const QStringList& ) const;
+    
+        QNetworkReply* search( int limit = -1 ) const;
+        static QList<Artist> list( QNetworkReply* );
+        
+        QMap<QString, QString> params( const QString& method ) const;
     };
 }
 

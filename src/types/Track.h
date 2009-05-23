@@ -65,7 +65,7 @@ struct TrackData : QSharedData
   * detach, which is very handy for our usage in the client, but perhaps not
   * what you want. If you need a deep copy for eg. work in a thread, call 
   * clone(). */
-class LASTFM_TYPES_DLLEXPORT Track
+class LASTFM_DLLEXPORT Track
 {
 public:
     enum Source
@@ -77,8 +77,8 @@ public:
         LastFmRadio,
         Player,
         MediaDevice,
-		NonPersonalisedBroadcast, // eg Shoutcast, BBC Radio 1, etc.
-		PersonalisedRecommendation, // eg Pandora, but not Last.fm
+        NonPersonalisedBroadcast, // eg Shoutcast, BBC Radio 1, etc.
+        PersonalisedRecommendation, // eg Pandora, but not Last.fm
     };
 
     Track();
@@ -144,24 +144,25 @@ public:
     
 //////////// lastfm::Ws
     
-	/** See last.fm/api Track section */
-    WsReply* share( const class User& recipient, const QString& message = "" );
+    /** See last.fm/api Track section */
+    QNetworkReply* share( const class User& recipient, const QString& message = "" );
 
-    /** you can get any WsReply TagList using Tag::list( WsReply* ) */
-	WsReply* getTags() const; // for the logged in user
-	WsReply* getTopTags() const;
-    
+    /** you can get any QNetworkReply TagList using Tag::list( QNetworkReply* ) */
+    QNetworkReply* getTags() const; // for the logged in user
+    QNetworkReply* getTopTags() const;
+
     /** you can only add 10 tags, we submit everything you give us, but the
       * docs state 10 only. Will return 0 if the list is empty. */
-    WsReply* addTags( const QStringList& ) const;
+    QNetworkReply* addTags( const QStringList& ) const;
     /** will return 0 if the string is "" */
-    WsReply* removeTag( const QString& ) const;
-    
-	/** the url for this track's page at last.fm */
-	QUrl www() const;
-	
+    QNetworkReply* removeTag( const QString& ) const;
+
+    /** the url for this track's page at last.fm */
+    QUrl www() const;
+
 protected:
     QExplicitlySharedDataPointer<TrackData> d;
+    QMap<QString, QString> params( const QString& method, bool use_mbid = false ) const;
     
 private:
     Track( TrackData* that_d ) : d( that_d )
@@ -178,7 +179,7 @@ private:
   * encourages such usage, which is generally sensible. You can feel more
   * comfortable that the data hasn't accidently changed behind your back.
   */
-class LASTFM_TYPES_DLLEXPORT MutableTrack : public Track
+class LASTFM_DLLEXPORT MutableTrack : public Track
 {
 public:
     MutableTrack()
@@ -207,15 +208,15 @@ public:
     void setFingerprintId( uint id ) { d->fpid = id; }
     
     /** you also must scrobble this track for the love to become permenant */
-    WsReply* love();
-    WsReply* ban();
+    QNetworkReply* love();
+    QNetworkReply* ban();
 
     /** currently doesn't work, as there is no webservice */
     void unlove();
-	
+    
     void stamp() { d->time = QDateTime::currentDateTime(); }
 
-	void setExtra( const QString& key, const QString& value ) { d->extras[key] = value; }
+    void setExtra( const QString& key, const QString& value ) { d->extras[key] = value; }
     void removeExtra( QString key ) { d->extras.remove( key ); }
 };
 
@@ -234,7 +235,6 @@ TrackData::TrackData()
 } //namespace lastfm
 
 
-#include <QDebug>
 inline QDebug operator<<( QDebug d, const lastfm::Track& t )
 {
     return !t.isNull() 
@@ -243,12 +243,6 @@ inline QDebug operator<<( QDebug d, const lastfm::Track& t )
 }
 
 
-#include <QMetaType>
 Q_DECLARE_METATYPE( lastfm::Track );
-
-
-#ifdef LASTFM_COLLAPSE_NAMESPACE
-using lastfm::MutableTrack;
-#endif
 
 #endif //LASTFM_TRACK_H

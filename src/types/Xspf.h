@@ -26,18 +26,18 @@
 
 namespace lastfm
 {
-    class LASTFM_TYPES_DLLEXPORT Xspf
+    class LASTFM_DLLEXPORT Xspf
     {
     public:
         /** pass in the playlist node! */
-    	Xspf( const class QDomElement& playlist_node );
+        Xspf( const class QDomElement& playlist_node );
 
-    	QList<Track> tracks() const { return m_tracks; }
-    	QString title() const{ return m_title; }
+        QList<Track> tracks() const { return m_tracks; }
+        QString title() const{ return m_title; }
 
     private:
-    	QList<Track> m_tracks;
-    	QString m_title;
+        QList<Track> m_tracks;
+        QString m_title;
     };
 }
 

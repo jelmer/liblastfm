@@ -28,15 +28,15 @@
 
 namespace lastfm
 {
-    class LASTFM_TYPES_DLLEXPORT Album
+    class LASTFM_DLLEXPORT Album
     {
         Mbid m_mbid;
         Artist m_artist;
         QString m_title;
 
     public:
-    	Album()
-    	{}
+        Album()
+        {}
 
         explicit Album( Mbid mbid ) : m_mbid( mbid )
         {}
@@ -44,30 +44,30 @@ namespace lastfm
         Album( Artist artist, QString title ) : m_artist( artist ), m_title( title )
         {}
 
-    	bool operator==( const Album& that ) const { return m_title == that.m_title && m_artist == that.m_artist; }
-    	bool operator!=( const Album& that ) const { return m_title != that.m_title || m_artist != that.m_artist; }
-	
+        bool operator==( const Album& that ) const { return m_title == that.m_title && m_artist == that.m_artist; }
+        bool operator!=( const Album& that ) const { return m_title != that.m_title || m_artist != that.m_artist; }
+    
         operator QString() const { return title(); }
         QString title() const { return m_title.isEmpty() ? "[unknown]" : m_title; }
         Artist artist() const { return m_artist; }
         Mbid mbid() const { return m_mbid; }
 
-    	/** artist may have been set, since we allow that in the ctor, but should we handle untitled albums? */
-    	bool isNull() const { return m_title.isEmpty() && m_mbid.isNull(); }
-	
+        /** artist may have been set, since we allow that in the ctor, but should we handle untitled albums? */
+        bool isNull() const { return m_title.isEmpty() && m_mbid.isNull(); }
+    
         /** Album.getInfo WebService */
-        WsReply* getInfo() const;
-        WsReply* share( const class User& recipient, const QString& message = "" );
+        QNetworkReply* getInfo() const;
+        QNetworkReply* share( const class User& recipient, const QString& message = "" );
 
         /** use Tag::list to get the tag list out of the finished reply */
-        WsReply* getTags() const;
-        WsReply* getTopTags() const;
+        QNetworkReply* getTags() const;
+        QNetworkReply* getTopTags() const;
         
         /** Last.fm dictates that you may submit at most 10 of these */
-        WsReply* addTags( const QStringList& ) const;
+        QNetworkReply* addTags( const QStringList& ) const;
     
         /** the Last.fm website url for this album */
-    	QUrl www() const;
+        QUrl www() const;
     };
 }
 

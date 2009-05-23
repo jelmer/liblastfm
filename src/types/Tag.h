@@ -28,30 +28,30 @@
 
 namespace lastfm
 {
-    class LASTFM_TYPES_DLLEXPORT Tag
+    class LASTFM_DLLEXPORT Tag
     {
-    	QString m_name;
-	
+        QString m_name;
+    
     public:
-    	Tag( const QString& name ) : m_name( name )
-    	{}
-	
-    	operator QString() const { return m_name; }
+        Tag( const QString& name ) : m_name( name )
+        {}
+    
+        operator QString() const { return m_name; }
         QString name() const { return m_name; }
-	
-    	/** the global tag page at www.last.fm */
-    	QUrl www() const;
-    	/** the tag page for user @p user at www.last.fm */
-    	QUrl www( const class User& user ) const;
-	    /** pass the finished WsReply to Tag::list() */
-    	class WsReply* search() const;
+    
+        /** the global tag page at www.last.fm */
+        QUrl www() const;
+        /** the tag page for user @p user at www.last.fm */
+        QUrl www( const class User& user ) const;
+        /** pass the finished QNetworkReply to Tag::list() */
+        class QNetworkReply* search() const;
     
         /** the integer is the weighting, not all list type return requests
           * have a weighting, so the int may just be zero, if you don't care
           * about the weight just do this: 
           * QStringList tags = Tag::list( reply ).values();
           */
-        static QMap<int, QString> list( WsReply* );
+        static QMap<int, QString> list( QNetworkReply* );
     };
 }
 

@@ -22,7 +22,7 @@
 #include "ScrobbleCache.h"
 #include "Handshake.h"
 #include "ScrobblerSubmission.h"
-#include "../ws/WsKeys.h"
+#include "../ws/ws.h"
 
 
 namespace lastfm
@@ -31,7 +31,7 @@ namespace lastfm
     {
         AudioscrobblerPrivate(const QString& id)
                 : id( id )
-                , cache( Ws::Username )
+                , cache( ws::Username )
                 , hard_failures( 0 )
         {}
         
@@ -42,7 +42,7 @@ namespace lastfm
             delete submitter;
         }
 
-    	const QString id;
+        const QString id;
         QPointer<ScrobblerHandshake> handshake;
         QPointer<NowPlaying> np;
         QPointer<ScrobblerSubmission> submitter;
@@ -250,12 +250,12 @@ lastfm::Audioscrobbler::onSubmissionReturn( const QByteArray& result )
     {
         onError( Audioscrobbler::ErrorBadSession );
     }
-	else if (code.startsWith( "FAILED Plugin bug" ))
-	{
-		qWarning() << "YOU SUCK! Attempting reasonable error handling...";
-		d->cache.remove( d->submitter->batch() );
-	}
-	else if (++d->hard_failures >= 3)
+    else if (code.startsWith( "FAILED Plugin bug" ))
+    {
+        qWarning() << "YOU SUCK! Attempting reasonable error handling...";
+        d->cache.remove( d->submitter->batch() );
+    }
+    else if (++d->hard_failures >= 3)
     {
         onError( Audioscrobbler::ErrorThreeHardFailures );
     }

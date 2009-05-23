@@ -28,26 +28,26 @@
 
 namespace lastfm
 {
-    class LASTFM_TYPES_DLLEXPORT Playlist
+    class LASTFM_DLLEXPORT Playlist
     {
-    	int m_id;
-	
-    	Playlist() : m_id( -1 )
-    	{}
+        int m_id;
+    
+        Playlist() : m_id( -1 )
+        {}
 
     public:
-    	Playlist( int id ) : m_id( id )
-    	{}
-	
-    	int id() const { return m_id; }
+        Playlist( int id ) : m_id( id )
+        {}
+    
+        int id() const { return m_id; }
 
-    	WsReply* addTrack( const Track& ) const;
-    	WsReply* fetch() const;
+        QNetworkReply* addTrack( const Track& ) const;
+        QNetworkReply* fetch() const;
 
-    	static WsReply* create( const QString& title, const QString& description = "" );
-    	static WsReply* fetch( const QUrl& url );
-	
-    	static Xspf fetch( WsReply* );
+        static QNetworkReply* create( const QString& title, const QString& description = "" );
+        static QNetworkReply* fetch( const QUrl& url );
+    
+        static Xspf fetch( QNetworkReply* );
     };
 }
 
