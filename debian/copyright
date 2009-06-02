@@ -1,35 +1,27 @@
 This package was debianized by John Stamp <jstamp@users.sourceforge.net> on
-Mon, 20 Apr 2009 16:52:33 -0700.
+Tue, 26 May 2009 09:40:42 -0700.
 
-It was downloaded from http://cdn.last.fm/src/liblastfm-0.2.1.tar.bz2
+It was downloaded from http://cdn.last.fm/src/liblastfm-0.3.0.tar.bz2
 
 Files: *
-Copyright: Copyright © 2005-2009 Last.fm Ltd.
-License: GPL-2+
+Copyright: Copyright 2009 Last.fm Ltd.
+License: GPL-3+
 
 Files: debian/*
-Copyright: © 2009 John Stamp <jstamp@users.sourceforge.net>
+Copyright: Copyright 2009 John Stamp <jstamp@users.sourceforge.net>
 License: GPL-2+
 
 Files: admin/platform.rb
-Copyright: Matt Mower <self@mattmower.com>
-License: GPL-2+
+Copyright: Copyright Matt Mower <self@mattmower.com>
+License: LGPL
 
-Files: src/fingerprint/contrib/AacSource*, src/fingerprint/contrib/FlacSource*, src/fingerprint/contrib/VorbisSource*
-Copyright: Copyright © 2008-2009 John Stamp <jstamp@users.sourceforge.net>
-License: GPL-2+
-
-Files: src/fingerprint/contrib/main.cpp
-Copyright: Copyright © 2009 John Stamp <jstamp@users.sourceforge.net>
-Copyright: Copyright © 2009 Max Howell <max@last.fm>
-License: GPL-2+
-
-Files: src/fingerprint/FingerprintableSource.h
-Copyright: Copyright © 2009 John Stamp <jstamp@users.sourceforge.net>
-License: GPL-2+
+Files: src/fingerprint/contrib/*.cpp, src/fingerprint/contrib/*.h, src/fingerprint/FingerprintableSource.h
+Copyright: Copyright 2009 Last.fm Ltd.
+Copyright: Copyright 2009 John Stamp <jstamp@users.sourceforge.net>
+License: GPL-3+
 
 Files: src/fingerprint/Sha256.*
-Copyright: 2001-2003, 2006 Allan Saddi <allan@saddi.com>
+Copyright: Copyright 2001-2003, 2006 Allan Saddi <allan@saddi.com>
 License: BSD-2
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
@@ -53,7 +45,7 @@ License: BSD-2
     POSSIBILITY OF SUCH DAMAGE.
 
 Files: src/types/mbid_mp3.c
-Copyright: Copyright © 2006 David Nicolson
+Copyright: Copyright 2006 David Nicolson
 License: BSD-3
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
@@ -81,5 +73,10 @@ License: BSD-3
     OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
     EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+Files: src/types/Track.cpp
+Copyright: Copyright 2005-2009 Last.fm Ltd.
+License: GPL-2+
+
 On Debian GNU/Linux systems, the complete text of the GNU General Public License
-can be found in `/usr/share/common-licenses/GPL-2'.
+can be found in `/usr/share/common-licenses/GPL'. The complete text of the GNU
+Lesser General Public License can be found in `/usr/share/common-licenses/LGPL'.
