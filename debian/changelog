@@ -1,5 +1,5 @@
-liblastfm (0.3.0-1) UNRELEASED; urgency=low
+liblastfm (0.3.0-1) unstable; urgency=low
 
   * Initial release (Closes: #524948)
 
- -- John Stamp <jstamp@users.sourceforge.net>  Sat, 23 May 2009 10:33:06 -0700
+ -- John Stamp <jstamp@users.sourceforge.net>  Tue, 02 Jun 2009 10:38:11 -0700
