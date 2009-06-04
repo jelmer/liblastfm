@@ -73,10 +73,6 @@ License: BSD-3
     OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
     EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-Files: src/types/Track.cpp
-Copyright: Copyright 2005-2009 Last.fm Ltd.
-License: GPL-2+
-
 On Debian GNU/Linux systems, the complete text of the GNU General Public License
 can be found in `/usr/share/common-licenses/GPL'. The complete text of the GNU
 Lesser General Public License can be found in `/usr/share/common-licenses/LGPL'.
