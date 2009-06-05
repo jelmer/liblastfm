@@ -12,7 +12,7 @@ Copyright: Copyright 2009 John Stamp <jstamp@users.sourceforge.net>
 License: GPL-2+
 
 Files: admin/platform.rb
-Copyright: Copyright Matt Mower <self@mattmower.com>
+Copyright: Copyright 2005 Matt Mower <self@mattmower.com>
 License: LGPL
 
 Files: src/fingerprint/contrib/*.cpp, src/fingerprint/contrib/*.h, src/fingerprint/FingerprintableSource.h
