@@ -61,7 +61,7 @@ binary-arch: install
 	dh_install
 	dh_installman
 	dh_link
-	dh_strip --dbg-package=liblastfm0-dbg
+	dh_strip --dbg-package=liblastfm-dbg
 	dh_compress
 	dh_fixperms
 	dh_makeshlibs -pliblastfm0 -V'liblastfm0 (>= 0.4.0~git20090710)'

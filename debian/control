@@ -40,7 +40,7 @@ Description: The Last.fm fingerprinting library
  This library lets you fingerprint decoded audio tracks and fetch metadata
  suggestions for them.
 
-Package: liblastfm0-dbg
+Package: liblastfm-dbg
 Architecture: any
 Section: debug
 Depends: liblastfm0 (= ${binary:Version}), liblastfm-fingerprint0 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
