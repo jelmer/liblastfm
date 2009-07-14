@@ -64,7 +64,8 @@ binary-arch: install
 	dh_strip --dbg-package=liblastfm0-dbg
 	dh_compress
 	dh_fixperms
-	dh_makeshlibs
+	dh_makeshlibs -pliblastfm0 -V'liblastfm0 (>= 0.4.0~git20090710)'
+	dh_makeshlibs -pliblastfm-fingerprint0 -V'liblastfm-fingerprint0'
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
