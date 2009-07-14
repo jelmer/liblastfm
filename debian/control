@@ -14,9 +14,7 @@ Architecture: any
 Depends: liblastfm0 (= ${binary:Version}), liblastfm-fingerprint0 (= ${binary:Version})
 Description: The Last.fm web services library - development files
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
- with their web services. With it subscribers can scrobble, fingerprint, or
- request metadata of audio tracks; get information on tracks, events, groups,
- and users; and request Last.fm radio streams.
+ with their web services.
  .
  This package contains the development files. Developers working on a new
  client will need to request an API key. See README for more details.
@@ -25,26 +23,22 @@ Package: liblastfm0
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: The Last.fm web services library for C++/Qt4
+Description: The Last.fm web services library
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
- with their web services. With it subscribers can scrobble, fingerprint, or
- request metadata of audio tracks; get information on tracks, events, groups,
- and users; and request Last.fm radio streams.
+ with their web services.
  .
- This package contains the liblastfm web services library.
+ This package contains the base web services library.
 
 Package: liblastfm-fingerprint0
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: The Last.fm track fingerprinting library
+Description: The Last.fm fingerprinting library
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
- with their web services. With it subscribers can scrobble, fingerprint, or
- request metadata of audio tracks; get information on tracks, events, groups,
- and users; and request Last.fm radio streams.
+ with their web services.
  .
- This library provides fingerprinting support for decoded audio. With it, you
- can fetch or submit metadata suggestions for tracks.
+ This library lets you fingerprint decoded audio tracks and fetch metadata
+ suggestions for them.
 
 Package: liblastfm0-dbg
 Architecture: any
@@ -52,8 +46,6 @@ Section: debug
 Depends: liblastfm0 (= ${binary:Version}), liblastfm-fingerprint0 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: Debugging symbols for the Last.fm web services library
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
- with their web services. With it subscribers can scrobble, fingerprint, or
- request metadata of audio tracks; get information on tracks, events, groups,
- and users; and request Last.fm radio streams.
+ with their web services.
  .
- This package contains the debugging symbols.
+ This package contains the debugging symbols for the liblastfm libraries.

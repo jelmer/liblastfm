@@ -2,6 +2,7 @@ liblastfm (0.4.0~git20090710-1) UNRELEASED; urgency=low
 
   * New upstream release from git snapshot.
   * Bump Standards-Version to 3.8.2 (no changes needed).
+  * Shorten package descriptions.
 
  -- John Stamp <jstamp@users.sourceforge.net>  Mon, 13 Jul 2009 21:17:59 -0700
 
