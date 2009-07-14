@@ -21,6 +21,13 @@
 #ifndef LASTFM_GLOBAL_H
 #define LASTFM_GLOBAL_H
 
+#define LASTFM_VERSION 0x00000400
+#define LASTFM_VERSION_STRING "0.4.0"
+#define LASTFM_MAJOR_VERSION 0
+#define LASTFM_MINOR_VERSION 4
+#define LASTFM_PATCH_VERSION 0
+
+
 #include <QtGlobal>
 
 #ifdef Q_CC_MSVC
@@ -81,6 +88,7 @@ namespace lastfm
     class NetworkAccessManager;
     class Playlist;
     class User;
+    class RadioStation;
     class Scrobble;
     class Tag;
     class Track;
@@ -100,6 +108,7 @@ using lastfm::Mbid;
 using lastfm::MutableTrack;
 using lastfm::Playlist;
 using lastfm::User;
+using lastfm::RadioStation;
 using lastfm::Scrobble;
 using lastfm::Tag;
 using lastfm::Track;

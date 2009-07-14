@@ -4,7 +4,7 @@ require "#{cwd}/platform.rb"
 def h(s, n)
   case Platform::IMPL
   when :mswin
-    puts '==>'+s
+    puts '==> '+s
   else
     puts "\033[0;#{n}m==>\033[0;0;1m #{s} \033[0;0m"
   end
@@ -28,4 +28,13 @@ def qmake_env(env, qenv)
   else
     nil
   end
+end
+
+class PkgConfigNotFound < RuntimeError; end
+class PkgNotFound < RuntimeError; end
+
+def pkgconfig pkg, prettyname
+  system "pkg-config --exists '#{pkg}'"
+  raise PkgConfigNotFound if $? == 127
+  raise PkgNotFound.new(prettyname) if $? != 0
 end
