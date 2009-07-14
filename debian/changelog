@@ -1,4 +1,4 @@
-liblastfm (0.4.0~git20090710-1) UNRELEASED; urgency=low
+liblastfm (0.4.0~git20090710-1) unstable; urgency=low
 
   * New upstream release from git snapshot.
   * Bump Standards-Version to 3.8.2 (no changes needed).
@@ -6,7 +6,7 @@ liblastfm (0.4.0~git20090710-1) UNRELEASED; urgency=low
   * Bump shlibs version for liblastfm0.
   * Rename debug package.
 
- -- John Stamp <jstamp@users.sourceforge.net>  Mon, 13 Jul 2009 21:17:59 -0700
+ -- John Stamp <jstamp@users.sourceforge.net>  Tue, 14 Jul 2009 11:14:08 -0700
 
 liblastfm (0.3.0-1) unstable; urgency=low
 
