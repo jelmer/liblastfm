@@ -1,0 +1,76 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+version=`ls _bin/lib*.so.* | \
+ awk '{if (match($$0,/[0-9]+\.[0-9]+\.[0-9]+$$/)) print substr($$0,RSTART)}'`
+major=`ls _bin/lib*.so.* | \
+ awk '{if (match($$0,/\.so\.[0-9]+$$/)) print substr($$0,RSTART+4)}'`
+
+LDFLAGS += "-Wl,--no-undefined -Wl,--as-needed"
+
+configure: config-stamp
+config-stamp:
+	dh_testdir
+	./configure --release --prefix /usr --no-strip
+	touch $@
+
+
+build: build-stamp
+build-stamp:  configure
+	dh_testdir
+
+	# Add here commands to compile the package.
+	$(MAKE) headers __src __fingerprint
+
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp config-stamp
+
+	# Add here commands to clean up after the build process.
+	[ ! -f Makefile ] || $(MAKE) distclean || true
+
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	# Add here commands to install the package into debian/tmp
+	DESTDIR=$(CURDIR)/debian/tmp $(MAKE) install
+
+
+# Build architecture-independent files here.
+binary-indep: install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_installexamples
+	dh_install
+	dh_installman
+	dh_link
+	dh_strip --dbg-package=liblastfm-dbg
+	dh_compress
+	dh_fixperms
+	dh_makeshlibs -pliblastfm0 -V'liblastfm0 (>= 0.4.0~git20090710)'
+	dh_makeshlibs -pliblastfm-fingerprint0 -V'liblastfm-fingerprint0'
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
