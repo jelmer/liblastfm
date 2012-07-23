@@ -1,6 +1,9 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 
+DEB_KDE_LINK_WITH_AS_NEEDED = yes
+include /usr/share/pkg-kde-tools/makefiles/1/variables.mk
+
 override_dh_auto_configure:
 	dh_auto_configure -- -DBUILD_FINGERPRINT=ON -DBUILD_TESTS=OFF $(DEB_CMAKE_CUSTOM_FLAGS)
 

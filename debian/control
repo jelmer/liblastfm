@@ -6,7 +6,8 @@ Build-Depends:
  debhelper (>= 9),
  libfftw3-dev,
  libqt4-dev,
- libsamplerate0-dev
+ libsamplerate0-dev,
+ pkg-kde-tools
 Standards-Version: 3.8.2
 Section: libs
 Homepage: http://www.last.fm/
