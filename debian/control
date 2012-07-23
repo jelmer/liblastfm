@@ -20,7 +20,6 @@ Description: Last.fm web services library - development files
  client will need to request an API key. See README for more details.
 
 Package: liblastfm1
-Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -31,7 +30,6 @@ Description: Last.fm web services library
  This package contains the base web services library.
 
 Package: liblastfm-fingerprint1
-Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
