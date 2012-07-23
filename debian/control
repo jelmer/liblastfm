@@ -31,6 +31,7 @@ Description: Last.fm web services library - development files
 
 Package: liblastfm1
 Architecture: any
+Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
@@ -43,6 +44,7 @@ Description: Last.fm web services library
 
 Package: liblastfm-fingerprint1
 Architecture: any
+Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
