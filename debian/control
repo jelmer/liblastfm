@@ -12,7 +12,7 @@ Package: liblastfm-dev
 Section: libdevel
 Architecture: any
 Depends: liblastfm1 (= ${binary:Version}), liblastfm-fingerprint1 (= ${binary:Version})
-Description: The Last.fm web services library - development files
+Description: Last.fm web services library - development files
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
  with their web services.
  .
@@ -24,7 +24,7 @@ Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: The Last.fm web services library
+Description: Last.fm web services library
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
  with their web services.
  .
@@ -35,7 +35,7 @@ Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: The Last.fm fingerprinting library
+Description: Last.fm fingerprinting library
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
  with their web services.
  .
