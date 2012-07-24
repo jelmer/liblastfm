@@ -1,6 +1,20 @@
 liblastfm (1.0.1-1) UNRELEASED; urgency=low
 
   * New upstream
+  * Remove fix-build-with-ruby1.9.patch
+  * Rename lib packages due to SONAME change
+  * Modify Build-Depends since upstream now uses cmake
+  * Use debhelper 9 for multiarch and hardened build flags
+  * Fix lintian warnings description-synopsis-starts-with-article,
+    binary-control-field-duplicates-source
+  * Add lintian-overrides for no-upstream-changelog
+  * Add libqt4-dev and misc:Depends to liblastfm-dev; remove shlibs:Depends
+    from liblastfm-dbg
+  * Add a watch file
+  * Bump Standards-Version to 3.9.3
+  * Update debian/copyright
+  * Add symbols files and use pkgkde_symbolshelper in dh invocation
+  * Add --parallel to dh invocation
 
  -- John Stamp <jstamp@users.sourceforge.net>  Fri, 20 Jul 2012 18:08:38 -0700
 
