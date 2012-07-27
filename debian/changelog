@@ -7,7 +7,6 @@ liblastfm (1.0.1-1) UNRELEASED; urgency=low
   * Use debhelper 9 for multiarch and hardened build flags
   * Fix lintian warnings description-synopsis-starts-with-article,
     binary-control-field-duplicates-source
-  * Add lintian-overrides for no-upstream-changelog
   * Add libqt4-dev and misc:Depends to liblastfm-dev; remove shlibs:Depends
     from liblastfm-dbg
   * Add a watch file
