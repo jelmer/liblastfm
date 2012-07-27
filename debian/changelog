@@ -1,4 +1,4 @@
-liblastfm (1.0.1-1) UNRELEASED; urgency=low
+liblastfm (1.0.1-1) experimental; urgency=low
 
   * New upstream
   * Remove fix-build-with-ruby1.9.patch
@@ -15,7 +15,7 @@ liblastfm (1.0.1-1) UNRELEASED; urgency=low
   * Add symbols files and use pkgkde_symbolshelper in dh invocation
   * Add --parallel to dh invocation
 
- -- John Stamp <jstamp@users.sourceforge.net>  Fri, 20 Jul 2012 18:08:38 -0700
+ -- John Stamp <jstamp@users.sourceforge.net>  Thu, 26 Jul 2012 21:23:10 -0700
 
 liblastfm (0.4.0~git20090710-2) unstable; urgency=medium
 
