@@ -1,0 +1,14 @@
+Description: Fix 'no return in nonvoid'.
+Author: Michael Coffey <michaelc@last.fm>
+Origin: upstream, https://github.com/lastfm/liblastfm/commit/40723240b50eb6daf8dbbd1f57e5ec8980eea12c
+diff --git a/src/fingerprint/Fingerprint.cpp b/src/fingerprint/Fingerprint.cpp
+index 8f09636..70d2511 100644
+--- a/src/fingerprint/Fingerprint.cpp
++++ b/src/fingerprint/Fingerprint.cpp
+@@ -363,4 +363,6 @@ QDebug operator<<( QDebug d, lastfm::Fingerprint::Error e )
+         CASE(InternalError)
+     }
+     #undef CASE
++
++    return d;
+ }
