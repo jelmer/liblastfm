@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 1.0.0 alpha amd64 armel armhf i386 ia64 mips mipsel powerpc ppc64 s390 s390x sparc
+# SymbolsHelper-Confirmed: 1.0.2 amd64
 liblastfm_fingerprint.so.1 liblastfm-fingerprint1 #MINVER#
  _ZN6lastfm11Fingerprint6decodeEP13QNetworkReplyPb@Base 1.0.0
  _ZN6lastfm11Fingerprint8generateEPNS_21FingerprintableSourceE@Base 1.0.0
@@ -43,3 +43,4 @@ liblastfm_fingerprint.so.1 liblastfm-fingerprint1 #MINVER#
  (optional=templinst|arch=!amd64 !i386)_ZSt4fillIN11fingerprint9GroupDataEEvRKSt15_Deque_iteratorIT_RS3_PS3_ES8_RKS3_@Base 1.0.0
  _ZTIN6lastfm11Fingerprint5ErrorE@Base 1.0.0
  _ZTSN6lastfm11Fingerprint5ErrorE@Base 1.0.0
+ _Zls6QDebugN6lastfm11Fingerprint5ErrorE@Base 1.0.2

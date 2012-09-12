@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 1.0.1 amd64
+# SymbolsHelper-Confirmed: 1.0.2 amd64
 liblastfm.so.1 liblastfm1 #MINVER#
  _ZN6lastfm10RadioTuner11qt_metacallEN11QMetaObject4CallEiPPv@Base 1.0.0
  _ZN6lastfm10RadioTuner11qt_metacastEPKc@Base 1.0.0
@@ -439,6 +439,8 @@ liblastfm.so.1 liblastfm1 #MINVER#
  _ZNK6lastfm4User17getRecentStationsEii@Base 1.0.0
  _ZNK6lastfm4User21getRecommendedArtistsEii@Base 1.0.0
  _ZNK6lastfm4User22getFriendsListeningNowEii@Base 1.0.0
+ _ZNK6lastfm4User22getFriendsThatListenToERKNS_6ArtistEii@Base 1.0.2
+ _ZNK6lastfm4User3ageEv@Base 1.0.2
  _ZNK6lastfm4User3wwwEv@Base 1.0.0
  _ZNK6lastfm4User4nameEv@Base 1.0.0
  _ZNK6lastfm4User4typeEv@Base 1.0.0
