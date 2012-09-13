@@ -1,2 +1,2 @@
 version=3
-http://github.com/eartle/liblastfm/tags .*/tarball/(\d[\d\.]+)
+http://github.com/lastfm/liblastfm/tags .*/tarball/(\d[\d\.]+)

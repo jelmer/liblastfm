@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: liblastfm
 Upstream-Contact: Michael Coffey <michaelc@last.fm>
-Source: https://github.com/eartle/liblastfm
+Source: https://github.com/lastfm/liblastfm
 
 Files: *
 Copyright: 2005-2012 Last.fm Ltd.

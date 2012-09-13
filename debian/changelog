@@ -6,6 +6,8 @@ liblastfm (1.0.2-1) UNRELEASED; urgency=low
     - fix_wrong_parameter_name_in_removetag.patch
     - dont_leak_qnetwork_replies_in_audioscrobbler.patch
     - fix_no_return_in_nonvoid.patch
+  * Update debian/copyright and debian/watch; upstream changed the location of
+    its release repository.
 
  -- John Stamp <jstamp@users.sourceforge.net>  Wed, 12 Sep 2012 13:59:03 -0700
 
