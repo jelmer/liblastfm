@@ -1,6 +1,6 @@
 liblastfm (1.0.2-1) UNRELEASED; urgency=low
 
-  * New upstream
+  * New upstream release.
   * Update symbols files.
   * Add patches:
     - fix_wrong_parameter_name_in_removetag.patch
