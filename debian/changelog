@@ -1,4 +1,4 @@
-liblastfm (1.0.2-1) UNRELEASED; urgency=low
+liblastfm (1.0.2-1) experimental; urgency=low
 
   * New upstream release.
   * Update symbols files.
@@ -9,7 +9,7 @@ liblastfm (1.0.2-1) UNRELEASED; urgency=low
   * Update debian/copyright and debian/watch; upstream changed the location of
     its release repository.
 
- -- John Stamp <jstamp@users.sourceforge.net>  Wed, 12 Sep 2012 13:59:03 -0700
+ -- John Stamp <jstamp@users.sourceforge.net>  Wed, 12 Sep 2012 17:27:02 -0700
 
 liblastfm (1.0.1-1) experimental; urgency=low
 
