@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 1.0.2 amd64
+# SymbolsHelper-Confirmed: 1.0.3 amd64 i386
 liblastfm.so.1 liblastfm1 #MINVER#
  _ZN6lastfm10RadioTuner11qt_metacallEN11QMetaObject4CallEiPPv@Base 1.0.0
  _ZN6lastfm10RadioTuner11qt_metacastEPKc@Base 1.0.0
@@ -116,6 +116,7 @@ liblastfm.so.1 liblastfm1 #MINVER#
  _ZN6lastfm13FingerprintIdaSERKS0_@Base 1.0.0
  _ZN6lastfm13ScrobbleCache3addERK5QListINS_5TrackEE@Base 1.0.0
  _ZN6lastfm13ScrobbleCache6removeERK5QListINS_5TrackEE@Base 1.0.0
+ _ZN6lastfm13ScrobbleCache7isValidERKNS_5TrackEPNS0_10InvalidityE@Base 1.0.3
  _ZN6lastfm13ScrobbleCacheC1ERK7QString@Base 1.0.0
  _ZN6lastfm13ScrobbleCacheC1ERKS0_@Base 1.0.0
  _ZN6lastfm13ScrobbleCacheC2ERK7QString@Base 1.0.0
@@ -137,6 +138,7 @@ liblastfm.so.1 liblastfm1 #MINVER#
  _ZN6lastfm13ScrobblePointD1Ev@Base 1.0.0
  _ZN6lastfm13ScrobblePointD2Ev@Base 1.0.0
  _ZN6lastfm13ScrobblePointaSERKS0_@Base 1.0.0
+ _ZN6lastfm14Audioscrobbler10cacheBatchERK5QListINS_5TrackEE@Base 1.0.3
  _ZN6lastfm14Audioscrobbler10cacheBatchERK5QListINS_5TrackEERK7QString@Base 1.0.0
  _ZN6lastfm14Audioscrobbler10nowPlayingERKNS_5TrackE@Base 1.0.0
  _ZN6lastfm14Audioscrobbler11qt_metacallEN11QMetaObject4CallEiPPv@Base 1.0.0
@@ -371,6 +373,7 @@ liblastfm.so.1 liblastfm1 #MINVER#
  _ZN6lastfm8UserListD1Ev@Base 1.0.0
  _ZN6lastfm8UserListD2Ev@Base 1.0.0
  _ZN6lastfm8UserListaSERKS0_@Base 1.0.0
+ _ZN6lastfm8XmlQuery5parseEP13QNetworkReply@Base 1.0.3
  _ZN6lastfm8XmlQuery5parseERK10QByteArray@Base 1.0.0
  _ZN6lastfm8XmlQueryC1ERK11QDomElementPKc@Base 1.0.0
  _ZN6lastfm8XmlQueryC1ERKS0_@Base 1.0.0

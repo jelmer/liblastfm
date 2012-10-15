@@ -5,7 +5,7 @@ liblastfm (1.0.3-1) UNRELEASED; urgency=low
     - dont_leak_qnetwork_replies_in_audioscrobbler.patch
     - fix_no_return_in_nonvoid.patch
     - fix_wrong_parameter_name_in_removetag.patch
-  * Update symbols for hurd-i386 and kfreebsd-*
+  * Update symbols files
 
  -- John Stamp <jstamp@users.sourceforge.net>  Sat, 15 Sep 2012 10:45:44 -0700
 
