@@ -1,3 +1,0 @@
-fix_wrong_parameter_name_in_removetag.patch
-dont_leak_qnetwork_replies_in_audioscrobbler.patch
-fix_no_return_in_nonvoid.patch
