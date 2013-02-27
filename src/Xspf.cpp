@@ -55,6 +55,7 @@ lastfm::Xspf::Xspf( const QDomElement& playlist_node, QObject* parent )
     {
         MutableTrack t;
         t.setUrl( e["location"].text() );
+        t.setImageUrl( AbstractType::LargeImage, e["image"].text() );
         t.setExtra( "trackauth", e["extension"]["trackauth"].text() );
         t.setTitle( e["title"].text() );
         t.setArtist( e["creator"].text() );
@@ -62,6 +63,8 @@ lastfm::Xspf::Xspf( const QDomElement& playlist_node, QObject* parent )
         t.setDuration( e["duration"].text().toInt() / 1000 );
         t.setLoved( e["extension"]["loved"].text() == "1" );
         t.setSource( Track::LastFmRadio );
+        t.setExtra( "expiry", QString::number( QDateTime::currentDateTime().addSecs( expirySeconds ).toTime_t() ) );
+        t.setExtra( "playlistTitle", d->title );
 
         QList<QString> contexts;
         QDomNodeList contextsNodeList = QDomElement(e["extension"]["context"]).childNodes();
@@ -103,6 +106,11 @@ lastfm::Xspf::takeFirst()
     return d->tracks.takeFirst();
 }
 
+QList<lastfm::Track>
+lastfm::Xspf::tracks() const
+{
+    return d->tracks;
+}
 
 void
 lastfm::Xspf::onExpired()

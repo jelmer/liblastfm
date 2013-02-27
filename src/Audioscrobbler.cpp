@@ -64,6 +64,8 @@ lastfm::Audioscrobbler::Audioscrobbler( const QString& id )
 
 lastfm::Audioscrobbler::~Audioscrobbler()
 {
+    if ( d->m_nowPlayingReply ) d->m_nowPlayingReply->abort();
+    if ( d->m_scrobbleReply ) d->m_scrobbleReply->abort();
     delete d;
 }
 
@@ -94,7 +96,6 @@ lastfm::Audioscrobbler::cacheBatch( const QList<lastfm::Track>& tracks, const QS
 {
     d->m_cache.add( tracks );
     emit scrobblesCached( tracks );
-    submit();
 }
 
 void

@@ -109,7 +109,8 @@ public:
         FilteredAlbumName = 115,
         FilteredTimestamp = 116,
         ExceededMaxDailyScrobbles = 118,
-        InvalidStreamAuth = 119
+        InvalidStreamAuth = 119,
+        Invalid = 300
     };
 
     Track();
@@ -210,6 +211,8 @@ public:
     */
     void getInfo( QObject* receiver, const char * method, const QString& username = "" ) const;
     QNetworkReply* getBuyLinks( const QString& country ) const;
+
+    static QNetworkReply* playlinks( const QList<Track>& tracks );
 
     /** you can only add 10 tags, we submit everything you give us, but the
       * docs state 10 only. Will return 0 if the list is empty. */

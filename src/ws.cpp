@@ -1,5 +1,5 @@
 /*
-   Copyright 2009 Last.fm Ltd. 
+   Copyright 2009 Last.fm Ltd.
       - Primarily authored by Max Howell, Jono Cole and Doug Mansell
 
    This file is part of liblastfm.
@@ -29,8 +29,13 @@
 #include <QUrl>
 #include <QThread>
 #include <QMutex>
+#include <QSslSocket>
 
+#if QT_VERSION >= QT_VERSION_CHECK( 5, 0, 0 )
+    #include <QUrlQuery>
+#endif
 
+static lastfm::ws::Scheme theScheme = lastfm::ws::Http;
 static QMap< QThread*, QNetworkAccessManager* > threadNamHash;
 static QSet< QThread* > ourNamSet;
 static QMutex namAccessMutex;
@@ -79,7 +84,19 @@ lastfm::ws::ParseError::operator=( const ParseError& that )
     return *this;
 }
 
-QString 
+lastfm::ws::Scheme
+lastfm::ws::scheme()
+{
+    return QSslSocket::supportsSsl() ? theScheme : Http;
+}
+
+void
+lastfm::ws::setScheme( lastfm::ws::Scheme scheme )
+{
+    theScheme = scheme;
+}
+
+QString
 lastfm::ws::host()
 {
     QStringList const args = QCoreApplication::arguments();
@@ -96,15 +113,16 @@ lastfm::ws::host()
 static QUrl baseUrl()
 {
     QUrl url;
-    url.setScheme( "http" );
+    url.setScheme( lastfm::ws::scheme() == lastfm::ws::Https ? "https" : "http" );
     url.setHost( lastfm::ws::host() );
-    url.setEncodedPath( "/2.0/" );
+    url.setPath( "/2.0/" );
+
     return url;
 }
 
 static QString iso639()
-{ 
-    return QLocale().name().left( 2 ).toLower(); 
+{
+    return QLocale().name().left( 2 ).toLower();
 }
 
 void autograph( QMap<QString, QString>& params )
@@ -144,7 +162,11 @@ lastfm::ws::url( QMap<QString, QString> params, bool sk )
         i.next();
         QByteArray const key = QUrl::toPercentEncoding( i.key() );
         QByteArray const value = QUrl::toPercentEncoding( i.value() );
+#if QT_VERSION >= QT_VERSION_CHECK( 5, 0, 0 )
+        QUrlQuery(url).addQueryItem( key, value );
+#else
         url.addEncodedQueryItem( key, value );
+#endif
     }
 
     return url;
@@ -160,7 +182,7 @@ lastfm::ws::get( QMap<QString, QString> params )
 
 QNetworkReply*
 lastfm::ws::post( QMap<QString, QString> params, bool sk )
-{   
+{
     sign( params, sk );
     QByteArray query;
     QMapIterator<QString, QString> i( params );
@@ -275,7 +297,7 @@ namespace lastfm
         const char* ApiKey;
 
         /** if this is found set to "" we conjure ourselves a suitable one */
-        const char* UserAgent = 0;   
+        const char* UserAgent = 0;
     }
 }
 

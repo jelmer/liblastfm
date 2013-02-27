@@ -4,8 +4,13 @@ project(liblastfm)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 
 # general settings
-set(LASTFM_VERSION 1.0.3)
 set(LASTFM_SOVERSION 1)
+set(LASTFM_VERSION "0x00010007")
+
+set(LASTFM_MAJOR_VERSION "1")
+set(LASTFM_MINOR_VERSION "0")
+set(LASTFM_PATCH_VERSION "7")
+set(LASTFM_VERSION_STRING "${LASTFM_MAJOR_VERSION}.${LASTFM_MINOR_VERSION}.${LASTFM_PATCH_VERSION}")
 
 # options
 option(BUILD_FINGERPRINT "Build the lastfm-fingerprint library" ON)
@@ -20,8 +25,30 @@ include(GNUInstallDirs)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake/Modules")
 
 # setup qt stuff
-find_package(Qt4 COMPONENTS QtCore QtNetwork QtXml REQUIRED)
-set(CMAKE_AUTOMOC TRUE)
+set(CMAKE_AUTOMOC ON)
+find_package(Qt5Core QUIET)
+if(Qt5Core_DIR)
+    message(STATUS "Found Qt5! Please keep in mind, this is highly experimental and not our main development target..")
+
+#     macro(qt_wrap_ui)
+#         qt5_wrap_ui(${ARGN})
+#     endmacro()
+#
+#     macro(qt_add_resources)
+#         qt5_add_resources(${ARGN})
+#     endmacro()
+#
+#     find_package(Qt5LinguistTools REQUIRED)
+#     macro(qt_add_translation)
+#         qt5_add_translation(${ARGN})
+#     endmacro()
+else()
+    find_package(Qt4 COMPONENTS QtCore QtNetwork QtXml REQUIRED)
+
+    macro(qt5_use_modules)
+    endmacro()
+endif()
+
 
 if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions("-fno-operator-names -fvisibility-inlines-hidden -fvisibility=hidden")

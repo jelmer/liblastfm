@@ -46,6 +46,8 @@ namespace lastfm
 
         void retune( const RadioStation& );
 
+        void queueTrack( lastfm::Track& track );
+
     signals:
         void title( const QString& );
         void supportsDisco( bool supportsDisco );
@@ -55,8 +57,8 @@ namespace lastfm
     private slots:
         void onTuneReturn();
         void onGetPlaylistReturn();
-        void onXspfExpired();
-
+        // no-op
+        Q_DECL_DEPRECATED void onXspfExpired();
 
     private:
         class RadioTunerPrivate * const d;

@@ -35,13 +35,14 @@ class LASTFM_DLLEXPORT NetworkAccessManager : public QNetworkAccessManager
     Q_OBJECT
 
 #ifdef Q_WS_WIN
-    class Pac *m_pac;
     class InternetConnectionMonitor* m_monitor;
 #endif
 
 public:
     NetworkAccessManager( QObject *parent = 0 );
     ~NetworkAccessManager();
+
+    void setUserProxy( const QNetworkProxy& proxy );
 
     /** PAC allows different proxy configurations depending on the request
       * URL and even UserAgent! Thus we allow you to pass that in, we
