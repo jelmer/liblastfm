@@ -8,7 +8,7 @@ Build-Depends:
  libqt4-dev,
  libsamplerate0-dev,
  pkg-kde-tools
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Section: libs
 Homepage: http://www.last.fm/
 Vcs-Browser: http://github.com/jstamp/liblastfm
