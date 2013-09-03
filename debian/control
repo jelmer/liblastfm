@@ -17,6 +17,7 @@ Vcs-Git: git://github.com/jstamp/liblastfm.git
 Package: liblastfm-dev
 Section: libdevel
 Architecture: any
+Multi-Arch: same
 Depends:
  liblastfm-fingerprint1 (= ${binary:Version}),
  liblastfm1 (= ${binary:Version}),
@@ -58,6 +59,7 @@ Description: Last.fm fingerprinting library
 
 Package: liblastfm-dbg
 Architecture: any
+Multi-Arch: same
 Section: debug
 Depends:
  liblastfm-fingerprint1 (= ${binary:Version}),
