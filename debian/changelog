@@ -1,3 +1,9 @@
+liblastfm (1.0.8-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- John Stamp <jstamp@users.sourceforge.net>  Tue, 03 Sep 2013 10:13:35 -0700
+
 liblastfm (1.0.7-2) unstable; urgency=low
 
   * Bump Standards-Version to 3.9.4.  No changes needed.
