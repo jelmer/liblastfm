@@ -100,15 +100,38 @@ lastfm::TrackContext::operator=( const TrackContext& that )
     return *this;
 }
 
-
-class lastfm::TrackData : public QObject, public QSharedData
+class TrackObject : public QObject
 {
     Q_OBJECT
+public:
+    TrackObject( lastfm::TrackData& data ) : m_data( data ) {;}
 
-    friend class Track;
-    friend class MutableTrack;
+public:
+    void forceLoveToggled( bool love );
+    void forceScrobbleStatusChanged();
+    void forceCorrected( QString correction );
+
+private slots:
+    void onLoveFinished();
+    void onUnloveFinished();
+    void onGotInfo();
+
+signals:
+    void loveToggled( bool love );
+    void scrobbleStatusChanged( short scrobbleStatus );
+    void corrected( QString correction );
+
+private:
+    lastfm::TrackData& m_data;
+};
+
+class lastfm::TrackData : public QSharedData
+{
+    friend class TrackObject;
+
 public:
     TrackData();
+    ~TrackData();
 
 public:
     lastfm::Artist artist;
@@ -151,21 +174,9 @@ public:
     bool podcast;
     bool video;
 
-private:
-    void forceLoveToggled( bool love );
-    void forceScrobbleStatusChanged();
-    void forceCorrected( QString correction );
-
-private slots:
-    void onLoveFinished();
-    void onUnloveFinished();
-    void onGotInfo();
-
-signals:
-    void loveToggled( bool love );
-    void scrobbleStatusChanged( short scrobbleStatus );
-    void corrected( QString correction );
+    TrackObject* trackObject;
 };
+
 
 
 lastfm::TrackData::TrackData()
@@ -180,7 +191,14 @@ lastfm::TrackData::TrackData()
                null( false ),
                podcast( false ),
                video( false )
-{}
+{
+    trackObject = new TrackObject( *this );
+}
+
+lastfm::TrackData::~TrackData()
+{
+    delete trackObject;
+}
 
 lastfm::Track::Track()
     :AbstractType()
@@ -266,45 +284,45 @@ lastfm::Track::Track( const QDomElement& e )
 }
 
 void
-lastfm::TrackData::onLoveFinished()
+TrackObject::onLoveFinished()
 {
-    XmlQuery lfm;
+    lastfm::XmlQuery lfm;
 
     if ( lfm.parse( static_cast<QNetworkReply*>(sender()) ) )
     {
         if ( lfm.attribute( "status" ) == "ok")
-            loved = Track::Loved;
+            m_data.loved = lastfm::Track::Loved;
 
     }
 
-    emit loveToggled( loved == Track::Loved );
+    emit loveToggled( m_data.loved == lastfm::Track::Loved );
 }
 
 
 void
-lastfm::TrackData::onUnloveFinished()
+TrackObject::onUnloveFinished()
 {
-    XmlQuery lfm;
+    lastfm::XmlQuery lfm;
 
     if ( lfm.parse( static_cast<QNetworkReply*>(sender()) ) )
     {
         if ( lfm.attribute( "status" ) == "ok")
-            loved = Track::Unloved;
+            m_data.loved = lastfm::Track::Unloved;
     }
 
-    emit loveToggled( loved == Track::Loved );
+    emit loveToggled( m_data.loved == lastfm::Track::Loved );
 }
 
 void
-lastfm::TrackData::onGotInfo()
+TrackObject::onGotInfo()
 {
-    Observer observer;
+    lastfm::TrackData::Observer observer;
 
-    for ( int i = 0 ; i < observers.count() ; ++i )
+    for ( int i = 0 ; i < m_data.observers.count() ; ++i )
     {
-        if ( observers.at( i ).reply == sender() )
+        if ( m_data.observers.at( i ).reply == sender() )
         {
-            observer = observers.takeAt( i );
+            observer = m_data.observers.takeAt( i );
             break;
         }
     }
@@ -317,27 +335,25 @@ lastfm::TrackData::onGotInfo()
 
     if ( lfm.parse( data ) )
     {
-        qDebug() << lfm;
-
         QString imageUrl = lfm["track"]["image size=small"].text();
-        if ( !imageUrl.isEmpty() ) m_images[AbstractType::SmallImage] = imageUrl;
+        if ( !imageUrl.isEmpty() ) m_data.m_images[lastfm::AbstractType::SmallImage] = imageUrl;
         imageUrl = lfm["track"]["image size=medium"].text();
-        if ( !imageUrl.isEmpty() ) m_images[AbstractType::MediumImage] = imageUrl;
+        if ( !imageUrl.isEmpty() ) m_data.m_images[lastfm::AbstractType::MediumImage] = imageUrl;
         imageUrl = lfm["track"]["image size=large"].text();
-        if ( !imageUrl.isEmpty() ) m_images[AbstractType::LargeImage] = imageUrl;
+        if ( !imageUrl.isEmpty() ) m_data.m_images[lastfm::AbstractType::LargeImage] = imageUrl;
         imageUrl = lfm["track"]["image size=extralarge"].text();
-        if ( !imageUrl.isEmpty() ) m_images[AbstractType::ExtraLargeImage] = imageUrl;
+        if ( !imageUrl.isEmpty() ) m_data.m_images[lastfm::AbstractType::ExtraLargeImage] = imageUrl;
         imageUrl = lfm["track"]["image size=mega"].text();
-        if ( !imageUrl.isEmpty() ) m_images[AbstractType::MegaImage] = imageUrl;
+        if ( !imageUrl.isEmpty() ) m_data.m_images[lastfm::AbstractType::MegaImage] = imageUrl;
 
         if ( lfm["track"]["userloved"].text().length() > 0 )
-            loved = lfm["track"]["userloved"].text() == "0" ? Track::Unloved : Track::Loved;
+            m_data.loved = lfm["track"]["userloved"].text() == "0" ? lastfm::Track::Unloved : lastfm::Track::Loved;
 
         if ( observer.receiver )
             if ( !QMetaObject::invokeMethod( observer.receiver, observer.method, Q_ARG(QByteArray, data) ) )
                 QMetaObject::invokeMethod( observer.receiver, observer.method );
 
-        emit loveToggled( loved == Track::Loved );
+        emit loveToggled( m_data.loved == lastfm::Track::Loved );
     }
     else
     {
@@ -348,19 +364,19 @@ lastfm::TrackData::onGotInfo()
 }
 
 void
-lastfm::TrackData::forceLoveToggled( bool love )
+TrackObject::forceLoveToggled( bool love )
 {
     emit loveToggled( love );
 }
 
 void
-lastfm::TrackData::forceScrobbleStatusChanged()
+TrackObject::forceScrobbleStatusChanged()
 {
-    emit scrobbleStatusChanged( scrobbleStatus );
+    emit scrobbleStatusChanged( m_data.scrobbleStatus );
 }
 
 void
-lastfm::TrackData::forceCorrected( QString correction )
+TrackObject::forceCorrected( QString correction )
 {
     emit corrected( correction );
 }
@@ -376,6 +392,16 @@ lastfm::Track::operator=( const Track& that )
 lastfm::Track::~Track()
 {
 }
+
+
+lastfm::Track
+lastfm::Track::clone() const
+{
+    Track clone = *this;
+    clone.d.detach();
+    return clone;
+}
+
 
 QDomElement
 lastfm::Track::toDomElement( QDomDocument& xml ) const
@@ -592,7 +618,7 @@ lastfm::MutableTrack::setFromLfm( const XmlQuery& lfm )
     if ( lfm["track"]["userloved"].text().length() > 0)
         d->loved = lfm["track"]["userloved"].text() == "0" ? Unloved : Loved;
 
-    d->forceLoveToggled( d->loved == Loved );
+    d->trackObject->forceLoveToggled( d->loved == Loved );
 }
 
 void
@@ -713,8 +739,6 @@ lastfm::Track::getInfo( QObject *receiver, const char *method, const QString &us
     // this is so the web services knows whether to use corrections or not
     if (!lastfm::ws::SessionKey.isEmpty()) map["sk"] = lastfm::ws::SessionKey;
 
-    qDebug() << map;
-
     QNetworkReply* reply = ws::get( map );
 
     TrackData::Observer observer;
@@ -723,7 +747,7 @@ lastfm::Track::getInfo( QObject *receiver, const char *method, const QString &us
     observer.reply = reply;
     d->observers << observer;
 
-    QObject::connect( reply, SIGNAL(finished()), d.data(), SLOT(onGotInfo()));
+    QObject::connect( reply, SIGNAL(finished()), d->trackObject, SLOT(onGotInfo()));
 }
 
 
@@ -794,8 +818,6 @@ lastfm::Track::updateNowPlaying( int duration ) const
     if ( !album().isNull() ) map["album"] = album();
     map["context"] = extra("playerId");
 
-    qDebug() << map;
-
     return ws::post(map);
 }
 
@@ -804,8 +826,6 @@ lastfm::Track::removeNowPlaying() const
 {
     QMap<QString, QString> map;
     map["method"] = "track.removeNowPlaying";
-
-    qDebug() << map;
 
     return ws::post(map);
 }
@@ -821,8 +841,6 @@ lastfm::Track::scrobble() const
     map["albumArtist"] = d->albumArtist;
     if ( !d->album.title().isEmpty() ) map["album"] = d->album.title();
     map["chosenByUser"] = source() == Track::LastFmRadio ? "0" : "1";
-
-    qDebug() << map;
 
     return ws::post(map);
 }
@@ -845,8 +863,6 @@ lastfm::Track::scrobble(const QList<lastfm::Track>& tracks)
         if ( !tracks[i].mbid().isNull() ) map["mbid[" + QString::number(i)  + "]"] = tracks[i].mbid();
         map["chosenByUser[" + QString::number(i) + "]"] = tracks[i].source() == Track::LastFmRadio ? "0" : "1";
     }
-
-    qDebug() << map;
 
     return ws::post(map);
 }
@@ -891,7 +907,7 @@ lastfm::Track::operator!=( const Track& that ) const
 const QObject*
 lastfm::Track::signalProxy() const
 {
-    return d.data();
+    return d->trackObject;
 }
 
 bool
@@ -1029,7 +1045,7 @@ lastfm::MutableTrack::setCorrections( QString title, QString album, QString arti
     d->correctedAlbum = Album( artist, album );
     d->correctedAlbumArtist = albumArtist;
 
-    d->forceCorrected( toString() );
+    d->trackObject->forceCorrected( toString() );
 }
 
 lastfm::MutableTrack::MutableTrack()
@@ -1115,8 +1131,11 @@ lastfm::MutableTrack::setFingerprintId( uint id )
 void
 lastfm::MutableTrack::setScrobbleStatus( ScrobbleStatus scrobbleStatus )
 {
-    d->scrobbleStatus = scrobbleStatus;
-    d->forceScrobbleStatusChanged();
+    if ( scrobbleStatus != d->scrobbleStatus )
+    {
+        d->scrobbleStatus = scrobbleStatus;
+        d->trackObject->forceScrobbleStatusChanged();
+    }
 }
 
 void

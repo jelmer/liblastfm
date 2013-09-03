@@ -9,7 +9,7 @@ set(LASTFM_VERSION "0x00010007")
 
 set(LASTFM_MAJOR_VERSION "1")
 set(LASTFM_MINOR_VERSION "0")
-set(LASTFM_PATCH_VERSION "7")
+set(LASTFM_PATCH_VERSION "8")
 set(LASTFM_VERSION_STRING "${LASTFM_MAJOR_VERSION}.${LASTFM_MINOR_VERSION}.${LASTFM_PATCH_VERSION}")
 
 # options
@@ -26,9 +26,17 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake/Module
 
 # setup qt stuff
 set(CMAKE_AUTOMOC ON)
-find_package(Qt5Core QUIET)
+
+option(BUILD_WITH_QT4 "Build liblastfm with Qt4 no matter if Qt5 was found" OFF)
+
+if( NOT BUILD_WITH_QT4 )
+    # try Qt5 first, and prefer that if found
+    find_package(Qt5Core QUIET)
+endif()
+
 if(Qt5Core_DIR)
     message(STATUS "Found Qt5! Please keep in mind, this is highly experimental and not our main development target..")
+    include_directories(${Qt5Core_INCLUDE_DIRS})
 
 #     macro(qt_wrap_ui)
 #         qt5_wrap_ui(${ARGN})
