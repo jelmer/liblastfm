@@ -1,6 +1,7 @@
 liblastfm (1.0.8-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * Update debian/watch file.  Thanks to Bart Martens.
 
  -- John Stamp <jstamp@users.sourceforge.net>  Tue, 03 Sep 2013 10:13:35 -0700
 
