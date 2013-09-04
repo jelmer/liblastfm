@@ -1,11 +1,11 @@
-liblastfm (1.0.8-1) UNRELEASED; urgency=low
+liblastfm (1.0.8-1) unstable; urgency=low
 
   * New upstream release.
   * Update debian/watch file.  Thanks to Bart Martens.
   * Mark the -dbg and -dev packages Multi-Arch: same
   * Update symbols for liblastfm1
 
- -- John Stamp <jstamp@users.sourceforge.net>  Tue, 03 Sep 2013 10:13:35 -0700
+ -- John Stamp <jstamp@users.sourceforge.net>  Tue, 03 Sep 2013 18:27:52 -0700
 
 liblastfm (1.0.7-2) unstable; urgency=low
 
