@@ -1,9 +1,9 @@
-liblastfm (1.0.8-2) UNRELEASED; urgency=low
+liblastfm (1.0.8-2) unstable; urgency=low
 
   * Check Q_OS_UNIX definition instead of nonexistent Q_OS_X11.  This fixes
     the cache and config paths that broke in the last upload.
 
- -- John Stamp <jstamp@users.sourceforge.net>  Wed, 04 Sep 2013 10:55:45 -0700
+ -- John Stamp <jstamp@users.sourceforge.net>  Wed, 04 Sep 2013 11:06:05 -0700
 
 liblastfm (1.0.8-1) unstable; urgency=low
 
