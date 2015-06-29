@@ -1,6 +1,6 @@
 Source: liblastfm
 Priority: extra
-Maintainer: John Stamp <jstamp@users.sourceforge.net>
+Maintainer: John Stamp <jstamp@mehercule.net>
 Build-Depends:
  cmake,
  debhelper (>= 9),
