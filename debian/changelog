@@ -1,6 +1,7 @@
 liblastfm (1.0.8-3) UNRELEASED; urgency=medium
 
   * Change my email address in debian/control, debian/copyright.
+  * Mark some symbols as optional to fix build with gcc 5.
 
  -- John Stamp <jstamp@mehercule.net>  Mon, 29 Jun 2015 13:01:55 -0700
 

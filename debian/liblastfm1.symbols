@@ -67,9 +67,9 @@ liblastfm.so.1 liblastfm1 #MINVER#
  _ZN6lastfm12MutableTrackC1Ev@Base 1.0.0
  _ZN6lastfm12MutableTrackC2ERKNS_5TrackE@Base 1.0.0
  _ZN6lastfm12MutableTrackC2Ev@Base 1.0.0
- _ZN6lastfm12MutableTrackD0Ev@Base 1.0.0
- _ZN6lastfm12MutableTrackD1Ev@Base 1.0.0
- _ZN6lastfm12MutableTrackD2Ev@Base 1.0.0
+ (optional=gccinternal)_ZN6lastfm12MutableTrackD0Ev@Base 1.0.0
+ (optional=gccinternal)_ZN6lastfm12MutableTrackD1Ev@Base 1.0.0
+ (optional=gccinternal)_ZN6lastfm12MutableTrackD2Ev@Base 1.0.0
  _ZN6lastfm12RadioStation10setMainstrEf@Base 1.0.0
  _ZN6lastfm12RadioStation12setTagFilterERK7QString@Base 1.0.0
  _ZN6lastfm12RadioStation13neighbourhoodERKNS_4UserE@Base 1.0.0
@@ -603,7 +603,7 @@ liblastfm.so.1 liblastfm1 #MINVER#
  _ZTSN6lastfm5TrackE@Base 1.0.0
  _ZTSN6lastfm6ArtistE@Base 1.0.0
  _ZTVN6lastfm10RadioTunerE@Base 1.0.0
- _ZTVN6lastfm12AbstractTypeE@Base 1.0.0
+ (optional=gccinternal)_ZTVN6lastfm12AbstractTypeE@Base 1.0.0
  _ZTVN6lastfm12MutableTrackE@Base 1.0.0
  _ZTVN6lastfm14AudioscrobblerE@Base 1.0.0
  _ZTVN6lastfm20NetworkAccessManagerE@Base 1.0.0
