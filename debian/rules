@@ -4,10 +4,46 @@
 #export DH_VERBOSE=1
 
 DEB_KDE_LINK_WITH_AS_NEEDED = yes
+QT4_PATH = build/qt4/so
+QT5_PATH = build/qt5/so
 include /usr/share/pkg-kde-tools/makefiles/1/variables.mk
 
-override_dh_auto_configure:
-	dh_auto_configure -- -DBUILD_FINGERPRINT=TRUE -DBUILD_TESTS=FALSE $(DEB_CMAKE_CUSTOM_FLAGS)
-
 %:
-	dh $@ --parallel --list-missing --dbg-package=liblastfm-dbg --with pkgkde_symbolshelper
+	dh $@ --parallel --with pkgkde_symbolshelper
+
+override_dh_auto_configure:
+	mkdir -p $(QT4_PATH) $(QT5_PATH)
+	sed -e '15,60d' -i README.md
+	
+	# Qt4 builds
+	QT_SELECT=qt4 dh_auto_configure -B$(QT4_PATH) -- -DBUILD_FINGERPRINT=TRUE -DBUILD_TESTS=FALSE $(DEB_CMAKE_CUSTOM_FLAGS) -DBUILD_WITH_QT4=ON
+
+	# Qt5 builds 
+	QT_SELECT=qt5 dh_auto_configure -B$(QT5_PATH) -- -DBUILD_FINGERPRINT=TRUE -DBUILD_TESTS=FALSE $(DEB_CMAKE_CUSTOM_FLAGS)
+
+override_dh_auto_build:
+	# Qt4 builds - make (dynamic and static)
+	QT_SELECT=qt4 dh_auto_build -B$(QT4_PATH)
+
+	# Qt5 builds - make (dynamic and static)
+	QT_SELECT=qt5 dh_auto_build -B$(QT5_PATH)
+	
+override_dh_auto_clean:
+	dh_auto_clean -B$(QT4_PATH)
+	dh_auto_clean -B$(QT5_PATH)
+
+override_dh_auto_install:
+	# Install Qt4 packages
+	dh_auto_install -B$(QT4_PATH)
+
+	# Install Qt5 packages
+	dh_auto_install -B$(QT5_PATH)
+
+override_dh_strip:
+	dh_strip -pliblastfm1 --dbg-package=liblastfm-dbg
+	dh_strip -pliblastfm5-1 --dbg-package=liblastfm5-dbg
+	dh_strip -pliblastfm-fingerprint1 --dbg-package=liblastfm-fingerprint1-dbg
+	dh_strip -pliblastfm-fingerprint5-1 --dbg-package=liblastfm-fingerprint5-dbg
+
+override_dh_install:
+	dh_install --list-missing

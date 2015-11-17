@@ -4,11 +4,12 @@ Upstream-Contact: Michael Coffey <michaelc@last.fm>
 Source: https://github.com/lastfm/liblastfm
 
 Files: *
-Copyright: 2005-2012 Last.fm Ltd.
+Copyright: 2005-2015 Last.fm Ltd.
 License: GPL-3+
 
 Files: debian/*
-Copyright: 2012 John Stamp <jstamp@mehercule.net>
+Copyright: 2012-2014 John Stamp <jstamp@mehercule.net>
+	   2015	Stefan Ahlers <stef.ahlers@t-online.de>
 License: GPL-3+
 
 Files: demos/*

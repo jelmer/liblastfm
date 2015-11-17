@@ -1,5 +1,5 @@
 # SymbolsHelper-Confirmed: 1.0.8 amd64 i386
-liblastfm.so.1 liblastfm1 #MINVER#
+liblastfm5.so.1 liblastfm5-1 #MINVER#
  _ZN6lastfm10RadioTuner10queueTrackERNS_5TrackE@Base 1.0.4
  _ZN6lastfm10RadioTuner11qt_metacallEN11QMetaObject4CallEiPPv@Base 1.0.0
  _ZN6lastfm10RadioTuner11qt_metacastEPKc@Base 1.0.0

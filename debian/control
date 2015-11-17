@@ -1,18 +1,19 @@
 Source: liblastfm
-Priority: extra
-Maintainer: John Stamp <jstamp@mehercule.net>
+Priority: optional
+Maintainer: Stefan Ahlers <stef.ahlers@t-online.de>
 Build-Depends:
  cmake,
  debhelper (>= 9),
  libfftw3-dev,
  libqt4-dev,
+ qtbase5-dev,
  libsamplerate0-dev,
  pkg-kde-tools
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Section: libs
 Homepage: http://www.last.fm/
-Vcs-Browser: http://github.com/jstamp/liblastfm
-Vcs-Git: git://github.com/jstamp/liblastfm.git
+Vcs-Git: git://github.com/justin-time/liblastfm.git
+Vcs-Browser: https://github.com/justin-time/liblastfm
 
 Package: liblastfm-dev
 Section: libdevel
@@ -23,7 +24,7 @@ Depends:
  liblastfm1 (= ${binary:Version}),
  libqt4-dev,
  ${misc:Depends}
-Description: Last.fm web services library - development files
+Description: Last.fm web services library (Qt4 build) - development files
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
  with their web services.
  .
@@ -37,7 +38,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Description: Last.fm web services library
+Description: Last.fm web services library (Qt4 build)
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
  with their web services.
  .
@@ -50,7 +51,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Description: Last.fm fingerprinting library
+Description: Last.fm fingerprinting library (Qt4 build)
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
  with their web services.
  .
@@ -61,12 +62,97 @@ Package: liblastfm-dbg
 Architecture: any
 Multi-Arch: same
 Section: debug
+Priority: extra
 Depends:
  liblastfm-fingerprint1 (= ${binary:Version}),
  liblastfm1 (= ${binary:Version}),
  ${misc:Depends}
-Description: Debugging symbols for the Last.fm web services library
+Description: Debugging symbols for the Last.fm web services library (Qt4 build)
  liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
  with their web services.
  .
  This package contains the debugging symbols for the liblastfm libraries.
+
+Package: liblastfm-fingerprint5-1
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: Last.fm fingerprinting library (Qt5 build)
+ liblastfm is a collection of C++/Qt5 libraries provided by Last.fm for use
+ with their web services.
+ .
+ This library lets you fingerprint decoded audio tracks and fetch metadata
+ suggestions for them.
+
+Package: liblastfm5-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ liblastfm-fingerprint5-1 (= ${binary:Version}),
+ liblastfm5-1 (= ${binary:Version}),
+ ${misc:Depends}
+Description: Last.fm web services library (Qt5 build) - development files
+ liblastfm is a collection of C++/Qt5 libraries provided by Last.fm for use
+ with their web services.
+ .
+ This package contains the development files. Developers working on a new
+ client will need to request an API key. See README for more details.
+
+Package: liblastfm5-1
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: Last.fm web services library (Qt5 build)
+ liblastfm is a collection of C++/Qt5 libraries provided by Last.fm for use
+ with their web services.
+ .
+ This package contains the base web services library.
+
+Package: liblastfm5-dbg
+Architecture: any
+Multi-Arch: same
+Section: debug
+Priority: extra
+Depends:
+ liblastfm5-1 (= ${binary:Version}),
+ ${misc:Depends}
+Description: Debugging symbols for the Last.fm web services library (Qt5 build)
+ liblastfm is a collection of C++/Qt5 libraries provided by Last.fm for use
+ with their web services.
+ .
+ This package contains the debugging symbols for the liblastfm libraries.
+ 
+Package: liblastfm-fingerprint1-dbg
+Architecture: any
+Multi-Arch: same
+Section: debug
+Priority: extra
+Depends:
+ liblastfm5-1 (= ${binary:Version}),
+ ${misc:Depends}
+Description: Debugging symbols for the fingerprint library (Qt4 build)
+ liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use
+ with their web services.
+ .
+ This package contains the debugging symbols for the liblastfm-fingerprint
+ libraries.
+ 
+Package: liblastfm-fingerprint5-dbg
+Architecture: any
+Multi-Arch: same
+Section: debug
+Priority: extra
+Depends:
+ liblastfm5-1 (= ${binary:Version}),
+ ${misc:Depends}
+Description: Debugging symbols for the fingerprint library (Qt5 build)
+ liblastfm is a collection of C++/Qt5 libraries provided by Last.fm for use
+ with their web services.
+ .
+ This package contains the debugging symbols for the liblastfm-fingerprint
+ libraries.

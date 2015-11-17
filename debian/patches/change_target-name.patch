@@ -1,0 +1,19 @@
+From: Dominik Schmidt <dev@dominik-schmidt.de>
+Description:  Add LASTFM_LIB_VERSION_SUFFIX to include dir as well 
+Origin: upstream, https://github.com/lastfm/liblastfm/commit/480e2ec663ef867e7892dbbc624737cae176c717
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -105,4 +105,4 @@
+ 
+ file(GLOB liblastfm_HEADERS ${CMAKE_CURRENT_LIST_DIR}/*.h)
+ list(APPEND liblastfm_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/global.h)
+-install(FILES ${liblastfm_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/lastfm/)
++install(FILES ${liblastfm_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/lastfm${LASTFM_LIB_VERSION_SUFFIX}/)
+--- a/src/fingerprint/CMakeLists.txt
++++ b/src/fingerprint/CMakeLists.txt
+@@ -48,4 +48,4 @@
+     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+ )
+ 
+-install(FILES ${lastfm_fingerprint_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/lastfm/)
++install(FILES ${lastfm_fingerprint_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/lastfm${LASTFM_LIB_VERSION_SUFFIX}/)

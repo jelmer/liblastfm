@@ -1,5 +1,5 @@
 # SymbolsHelper-Confirmed: 1.0.2 amd64 hurd-i386 kfreebsd-amd64 kfreebsd-i386
-liblastfm_fingerprint.so.1 liblastfm-fingerprint1 #MINVER#
+liblastfm_fingerprint5.so.1 liblastfm-fingerprint5-1 #MINVER#
  _ZN6lastfm11Fingerprint6decodeEP13QNetworkReplyPb@Base 1.0.0
  _ZN6lastfm11Fingerprint8generateEPNS_21FingerprintableSourceE@Base 1.0.0
  _ZN6lastfm11FingerprintC1ERKNS_5TrackE@Base 1.0.0
@@ -13,7 +13,7 @@ liblastfm_fingerprint.so.1 liblastfm-fingerprint1 #MINVER#
  _ZNK6lastfm11Fingerprint2idEv@Base 1.0.0
  _ZNK6lastfm11Fingerprint4dataEv@Base 1.0.0
  _ZNK6lastfm11Fingerprint6submitEv@Base 1.0.0
- (optional=templinst|arch=powerpc ppc64)_ZNSt6vectorIN11fingerprint9GroupDataESaIS1_EED1Ev@Base 1.0.0
+  (optional=templinst|arch=powerpc ppc64)_ZNSt6vectorIN11fingerprint9GroupDataESaIS1_EED1Ev@Base 1.0.0
  (optional=templinst|arch=powerpc ppc64)_ZNSt6vectorIN11fingerprint9GroupDataESaIS1_EED2Ev@Base 1.0.0
  (optional=templinst|subst)_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EE{size_t}RKf@Base 1.0.0
  (optional=templinst|subst)_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EE{size_t}RKi@Base 1.0.0

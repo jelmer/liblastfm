@@ -1,2 +1,3 @@
-usr/include/*
-usr/lib/*/lib*.so
+usr/include/lastfm/*
+usr/lib/*/liblastfm.so
+usr/lib/*/liblastfm_fingerprint.so

@@ -1,0 +1,3 @@
+usr/include/lastfm5/*
+usr/lib/*/liblastfm5.so
+usr/lib/*/liblastfm_fingerprint5.so

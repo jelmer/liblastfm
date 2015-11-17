@@ -1,0 +1,617 @@
+# SymbolsHelper-Confirmed: 1.0.8 amd64 i386
+liblastfm.so.1 liblastfm1 #MINVER#
+ (c++)"lastfm::RadioTuner::queueTrack(lastfm::Track&)@Base" 1.0.4
+ (c++)"lastfm::RadioTuner::qt_metacall(QMetaObject::Call, int, void**)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::qt_metacast(char const*)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::onTuneReturn()@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::onXspfExpired()@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::supportsDisco(bool)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::takeNextTrack()@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::trackAvailable()@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::staticMetaObject@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::onGetPlaylistReturn()@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::error(lastfm::ws::Error, QString const&)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::title(QString const&)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::retune(lastfm::RadioStation const&)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::RadioTuner(lastfm::RadioStation const&)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::RadioTuner(lastfm::RadioStation const&)@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::~RadioTuner()@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::~RadioTuner()@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::~RadioTuner()@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::host(QLocale const&)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::slash(QString const&)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::encode(QString)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::isHost(QUrl const&)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::localize(QUrl)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::mobilize(QUrl)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::UrlBuilder(QString const&)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::UrlBuilder(lastfm::UrlBuilder const&)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::UrlBuilder(QString const&)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::UrlBuilder(lastfm::UrlBuilder const&)@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::~UrlBuilder()@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::~UrlBuilder()@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::operator=(lastfm::UrlBuilder const&)@Base" 1.0.0
+ (c++)"lastfm::Tasteometer::compare(lastfm::User const&, lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::Tasteometer::Tasteometer()@Base" 1.0.0
+ (c++)"lastfm::Tasteometer::Tasteometer()@Base" 1.0.0
+ (c++)"lastfm::Tasteometer::~Tasteometer()@Base" 1.0.0
+ (c++)"lastfm::Tasteometer::~Tasteometer()@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setContext(lastfm::TrackContext)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setFromLfm(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setPodcast(bool)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::removeExtra(QString)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setDuration(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setImageUrl(lastfm::AbstractType::ImageSize, QString const&)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setTimeStamp(QDateTime const&)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setAlbumArtist(QString)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setCorrections(QString, QString, QString, QString)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setTrackNumber(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setFingerprintId(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setScrobbleError(lastfm::Track::ScrobbleError)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setScrobbleStatus(lastfm::Track::ScrobbleStatus)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setScrobbleErrorText(QString const&)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::ban()@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::love()@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::stamp()@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setUrl(QUrl)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::unlove()@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setMbid(lastfm::Mbid)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setAlbum(QString)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setExtra(QString const&, QString const&)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setLoved(bool)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setTitle(QString)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setVideo(bool)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setArtist(QString)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::setSource(lastfm::Track::Source)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::MutableTrack(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::MutableTrack()@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::MutableTrack(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::MutableTrack::MutableTrack()@Base" 1.0.0
+ (c++)"lastfm::RadioStation::setMainstr(float)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::setTagFilter(QString const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::neighbourhood(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::recommendations(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::mix(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::tag(QList<lastfm::Tag>&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::tag(lastfm::Tag const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::list(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::setRep(float)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::setUrl(QString const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::friends(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::library(QList<lastfm::User>&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::library(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::similar(QList<lastfm::Artist>&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::similar(lastfm::Artist const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::setDisco(bool)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::setTitle(QString const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::RadioStation(QString const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::RadioStation(lastfm::RadioStation const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::RadioStation()@Base" 1.0.0
+ (c++)"lastfm::RadioStation::RadioStation(QString const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::RadioStation(lastfm::RadioStation const&)@Base" 1.0.0
+ (c++)"lastfm::RadioStation::RadioStation()@Base" 1.0.0
+ (c++)"lastfm::RadioStation::~RadioStation()@Base" 1.0.0
+ (c++)"lastfm::RadioStation::~RadioStation()@Base" 1.0.0
+ (c++)"lastfm::RadioStation::operator=(lastfm::RadioStation const&)@Base" 1.0.0
+ (c++)"lastfm::TrackContext::TrackContext(QString const&, QList<QString> const&)@Base" 1.0.0
+ (c++)"lastfm::TrackContext::TrackContext(lastfm::TrackContext const&)@Base" 1.0.0
+ (c++)"lastfm::TrackContext::TrackContext()@Base" 1.0.0
+ (c++)"lastfm::TrackContext::TrackContext(QString const&, QList<QString> const&)@Base" 1.0.0
+ (c++)"lastfm::TrackContext::TrackContext(lastfm::TrackContext const&)@Base" 1.0.0
+ (c++)"lastfm::TrackContext::TrackContext()@Base" 1.0.0
+ (c++)"lastfm::TrackContext::~TrackContext()@Base" 1.0.0
+ (c++)"lastfm::TrackContext::~TrackContext()@Base" 1.0.0
+ (c++)"lastfm::TrackContext::operator=(lastfm::TrackContext const&)@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::getSuggestions(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::FingerprintId(lastfm::FingerprintId const&)@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::FingerprintId(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::FingerprintId()@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::FingerprintId(lastfm::FingerprintId const&)@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::FingerprintId(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::FingerprintId()@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::~FingerprintId()@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::~FingerprintId()@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::operator=(lastfm::FingerprintId const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::add(QList<lastfm::Track> const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::remove(QList<lastfm::Track> const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::isValid(lastfm::Track const&, lastfm::ScrobbleCache::Invalidity*)@Base" 1.0.3
+ (c++)"lastfm::ScrobbleCache::ScrobbleCache(QString const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::ScrobbleCache(lastfm::ScrobbleCache const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::ScrobbleCache(QString const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::ScrobbleCache(lastfm::ScrobbleCache const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::~ScrobbleCache()@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::~ScrobbleCache()@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::operator=(lastfm::ScrobbleCache const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::scrobbleTimeMax()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::scrobbleTimeMin()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::scrobblePercentMax()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::scrobblePercentMin()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::defaultScrobblePercent()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::setEnforceScrobbleTimeMax(bool)@Base" 1.0.7
+ (c++)"lastfm::ScrobblePoint::ScrobblePoint(lastfm::ScrobblePoint const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::ScrobblePoint(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::ScrobblePoint()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::ScrobblePoint(lastfm::ScrobblePoint const&)@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::ScrobblePoint(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::ScrobblePoint()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::~ScrobblePoint()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::~ScrobblePoint()@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::operator=(lastfm::ScrobblePoint const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::cacheBatch(QList<lastfm::Track> const&)@Base" 1.0.3
+ (c++)"lastfm::Audioscrobbler::cacheBatch(QList<lastfm::Track> const&, QString const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::nowPlaying(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::qt_metacall(QMetaObject::Call, int, void**)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::qt_metacast(char const*)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::nowPlayingError(int, QString)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::scrobblesCached(QList<lastfm::Track> const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::staticMetaObject@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::onNowPlayingReturn()@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::scrobblesSubmitted(QList<lastfm::Track> const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::onTrackScrobbleReturn()@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::cache(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::submit()@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::Audioscrobbler(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::Audioscrobbler(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::~Audioscrobbler()@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::~Audioscrobbler()@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::~Audioscrobbler()@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::qt_metacall(QMetaObject::Call, int, void**)@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::qt_metacast(char const*)@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::setUserProxy(QNetworkProxy const&)@Base" 1.0.4
+ (c++)"lastfm::NetworkAccessManager::createRequest(QNetworkAccessManager::Operation, QNetworkRequest const&, QIODevice*)@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::staticMetaObject@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::onConnectivityChanged(bool)@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::proxy(QNetworkRequest const&)@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::NetworkAccessManager(QObject*)@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::NetworkAccessManager(QObject*)@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::~NetworkAccessManager()@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::~NetworkAccessManager()@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::~NetworkAccessManager()@Base" 1.0.0
+ (c++)"lastfm::setNetworkAccessManager(QNetworkAccessManager*)@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::networkDown()@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::qt_metacall(QMetaObject::Call, int, void**)@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::qt_metacast(char const*)@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::setConnected(bool)@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::staticMetaObject@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::networkUp()@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::NetworkConnectionMonitor(QObject*)@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::NetworkConnectionMonitor(QObject*)@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::~NetworkConnectionMonitor()@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::~NetworkConnectionMonitor()@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::~NetworkConnectionMonitor()@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::onFinished(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::onNetworkUp()@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::qt_metacall(QMetaObject::Call, int, void**)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::qt_metacast(char const*)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::onNetworkDown()@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::staticMetaObject@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::connectivityChanged(bool)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::up(QString const&)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::createNetworkConnectionMonitor()@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::down(QString const&)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::InternetConnectionMonitor(QObject*)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::InternetConnectionMonitor(QObject*)@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::~InternetConnectionMonitor()@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::~InternetConnectionMonitor()@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::~InternetConnectionMonitor()@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::ParseError(lastfm::ws::Error, QString)@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::ParseError(lastfm::ws::ParseError const&)@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::ParseError(lastfm::ws::Error, QString)@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::ParseError(lastfm::ws::ParseError const&)@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::~ParseError()@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::~ParseError()@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::operator=(lastfm::ws::ParseError const&)@Base" 1.0.0
+ (c++)"lastfm::ws::SessionKey@Base" 1.0.0
+ (c++)"lastfm::ws::SharedSecret@Base" 1.0.0
+ (c++)"lastfm::ws::get(QMap<QString, QString>)@Base" 1.0.0
+ (c++)"lastfm::ws::url(QMap<QString, QString>, bool)@Base" 1.0.0
+ (c++)"lastfm::ws::host()@Base" 1.0.0
+ (c++)"lastfm::ws::post(QMap<QString, QString>, bool)@Base" 1.0.0
+ (c++)"lastfm::ws::sign(QMap<QString, QString>&, bool)@Base" 1.0.0
+ (c++)"lastfm::ws::ApiKey@Base" 1.0.0
+ (c++)"lastfm::ws::scheme()@Base" 1.0.7
+ (c++)"lastfm::ws::expires(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::ws::Username@Base" 1.0.0
+ (c++)"lastfm::ws::setScheme(lastfm::ws::Scheme)@Base" 1.0.7
+ (c++)"lastfm::Tag::getTopTags()@Base" 1.0.0
+ (c++)"lastfm::Tag::list(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::Tag::Tag(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Tag::Tag(lastfm::Tag const&)@Base" 1.0.0
+ (c++)"lastfm::Tag::Tag(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Tag::Tag(lastfm::Tag const&)@Base" 1.0.0
+ (c++)"lastfm::Tag::~Tag()@Base" 1.0.0
+ (c++)"lastfm::Tag::~Tag()@Base" 1.0.0
+ (c++)"lastfm::Url::addQueryItem(QString const&, QString const&)@Base" 1.0.8
+ (c++)"lastfm::Url::Url(QUrl const&)@Base" 1.0.8
+ (c++)"lastfm::Url::Url(QUrl const&)@Base" 1.0.8
+ (c++)"lastfm::Url::~Url()@Base" 1.0.8
+ (c++)"lastfm::Url::~Url()@Base" 1.0.8
+ (c++)"lastfm::Url::operator=(lastfm::Url const&)@Base" 1.0.8
+ (c++)"lastfm::Url::operator()()@Base" 1.0.8
+ (c++)"lastfm::dir::runtimeData()@Base" 1.0.0
+ (c++)"lastfm::dir::logs()@Base" 1.0.0
+ (c++)"lastfm::dir::cache()@Base" 1.0.0
+ (c++)"lastfm::md5(QByteArray const&)@Base" 1.0.0
+ (c++)"lastfm::nam()@Base" 1.0.0
+ (c++)"lastfm::Auth::getSessionInfo()@Base" 1.0.0
+ (c++)"lastfm::Auth::getMobileSession(QString const&, QString const&)@Base" 1.0.4
+ (c++)"lastfm::Auth::Auth()@Base" 1.0.0
+ (c++)"lastfm::Auth::Auth()@Base" 1.0.0
+ (c++)"lastfm::Mbid::fromLocalFile(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Mbid::Mbid(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Mbid::Mbid(lastfm::Mbid const&)@Base" 1.0.0
+ (c++)"lastfm::Mbid::Mbid(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Mbid::Mbid(lastfm::Mbid const&)@Base" 1.0.0
+ (c++)"lastfm::Mbid::~Mbid()@Base" 1.0.0
+ (c++)"lastfm::Mbid::~Mbid()@Base" 1.0.0
+ (c++)"lastfm::Mbid::operator=(lastfm::Mbid const&)@Base" 1.0.0
+ (c++)"lastfm::User::setCountry(QString const&)@Base" 1.0.0
+ (c++)"lastfm::User::setRealName(QString const&)@Base" 1.0.0
+ (c++)"lastfm::User::setCanBootstrap(bool)@Base" 1.0.0
+ (c++)"lastfm::User::setIsSubscriber(bool)@Base" 1.0.0
+ (c++)"lastfm::User::setScrobbleCount(unsigned int)@Base" 1.0.0
+ (c++)"lastfm::User::setDateRegistered(QDateTime const&)@Base" 1.0.0
+ (c++)"lastfm::User::list(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::User::setAge(unsigned short)@Base" 1.0.0
+ (c++)"lastfm::User::getInfo(QString const&)@Base" 1.0.0
+ (c++)"lastfm::User::setName(QString const&)@Base" 1.0.0
+ (c++)"lastfm::User::setType(lastfm::User::Type)@Base" 1.0.0
+ (c++)"lastfm::User::setGender(QString const&)@Base" 1.0.0
+ (c++)"lastfm::User::setImages(QList<QUrl> const&)@Base" 1.0.0
+ (c++)"lastfm::User::User(QString const&)@Base" 1.0.0
+ (c++)"lastfm::User::User(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::User::User(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::User::User()@Base" 1.0.0
+ (c++)"lastfm::User::User(QString const&)@Base" 1.0.0
+ (c++)"lastfm::User::User(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::User::User(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::User::User()@Base" 1.0.0
+ (c++)"lastfm::User::~User()@Base" 1.0.0
+ (c++)"lastfm::User::~User()@Base" 1.0.0
+ (c++)"lastfm::User::~User()@Base" 1.0.0
+ (c++)"lastfm::User::operator=(lastfm::User const&)@Base" 1.0.0
+ (c++)"lastfm::Xspf::qt_metacall(QMetaObject::Call, int, void**)@Base" 1.0.0
+ (c++)"lastfm::Xspf::qt_metacast(char const*)@Base" 1.0.0
+ (c++)"lastfm::Xspf::staticMetaObject@Base" 1.0.0
+ (c++)"lastfm::Xspf::expired()@Base" 1.0.0
+ (c++)"lastfm::Xspf::onExpired()@Base" 1.0.0
+ (c++)"lastfm::Xspf::takeFirst()@Base" 1.0.0
+ (c++)"lastfm::Xspf::Xspf(QDomElement const&, QObject*)@Base" 1.0.0
+ (c++)"lastfm::Xspf::Xspf(QDomElement const&, QObject*)@Base" 1.0.0
+ (c++)"lastfm::Xspf::~Xspf()@Base" 1.0.0
+ (c++)"lastfm::Xspf::~Xspf()@Base" 1.0.0
+ (c++)"lastfm::Xspf::~Xspf()@Base" 1.0.0
+ (c++)"lastfm::Album::setImageUrl(lastfm::AbstractType::ImageSize, QString const&)@Base" 1.0.0
+ (c++)"lastfm::Album::setArtist(QString const&)@Base" 1.0.1
+ (c++)"lastfm::Album::Album(lastfm::Mbid)@Base" 1.0.0
+ (c++)"lastfm::Album::Album(lastfm::Artist, QString)@Base" 1.0.0
+ (c++)"lastfm::Album::Album(lastfm::Album const&)@Base" 1.0.0
+ (c++)"lastfm::Album::Album()@Base" 1.0.0
+ (c++)"lastfm::Album::Album(lastfm::Mbid)@Base" 1.0.0
+ (c++)"lastfm::Album::Album(lastfm::Artist, QString)@Base" 1.0.0
+ (c++)"lastfm::Album::Album(lastfm::Album const&)@Base" 1.0.0
+ (c++)"lastfm::Album::Album()@Base" 1.0.0
+ (c++)"lastfm::Album::~Album()@Base" 1.0.0
+ (c++)"lastfm::Album::~Album()@Base" 1.0.0
+ (c++)"lastfm::Album::~Album()@Base" 1.0.0
+ (c++)"lastfm::Album::operator=(lastfm::Album const&)@Base" 1.0.0
+ (c++)"lastfm::Chart::getTopTags(int, int)@Base" 1.0.0
+ (c++)"lastfm::Chart::getTopTracks(int, int)@Base" 1.0.0
+ (c++)"lastfm::Chart::getTopArtists(int, int)@Base" 1.0.0
+ (c++)"lastfm::Chart::getHypedTracks(int, int)@Base" 1.0.0
+ (c++)"lastfm::Chart::getLovedTracks(int, int)@Base" 1.0.0
+ (c++)"lastfm::Chart::getHypedArtists(int, int)@Base" 1.0.0
+ (c++)"lastfm::Chart::getTopDownloads(int, int)@Base" 1.0.0
+ (c++)"lastfm::Chart::Chart()@Base" 1.0.0
+ (c++)"lastfm::Chart::Chart()@Base" 1.0.0
+ (c++)"lastfm::Track::getSimilar(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::Track::sameObject(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Track::durationString(int)@Base" 1.0.0
+ (c++)"lastfm::Track::scrobble(QList<lastfm::Track> const&)@Base" 1.0.0
+ (c++)"lastfm::Track::playlinks(QList<lastfm::Track> const&)@Base" 1.0.4
+ (c++)"lastfm::Track::Track(QDomElement const&)@Base" 1.0.0
+ (c++)"lastfm::Track::Track(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Track::Track()@Base" 1.0.0
+ (c++)"lastfm::Track::Track(QDomElement const&)@Base" 1.0.0
+ (c++)"lastfm::Track::Track(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Track::Track()@Base" 1.0.0
+ (c++)"lastfm::Track::~Track()@Base" 1.0.0
+ (c++)"lastfm::Track::~Track()@Base" 1.0.0
+ (c++)"lastfm::Track::~Track()@Base" 1.0.0
+ (c++)"lastfm::Track::operator=(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::getSimilar(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::Artist::setImageUrl(lastfm::AbstractType::ImageSize, QString const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::getTopTracks(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::Artist::list(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::Artist::getInfo(QNetworkReply*)@Base" 1.0.0
+ (c++)"lastfm::Artist::setName(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist(lastfm::Artist const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist()@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist(lastfm::Artist const&)@Base" 1.0.0
+ (c++)"lastfm::Artist::Artist()@Base" 1.0.0
+ (c++)"lastfm::Artist::~Artist()@Base" 1.0.0
+ (c++)"lastfm::Artist::~Artist()@Base" 1.0.0
+ (c++)"lastfm::Artist::~Artist()@Base" 1.0.0
+ (c++)"lastfm::Artist::operator=(lastfm::Artist const&)@Base" 1.0.0
+ (c++)"lastfm::Gender::Gender(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Gender::Gender(lastfm::Gender const&)@Base" 1.0.0
+ (c++)"lastfm::Gender::Gender()@Base" 1.0.0
+ (c++)"lastfm::Gender::Gender(QString const&)@Base" 1.0.0
+ (c++)"lastfm::Gender::Gender(lastfm::Gender const&)@Base" 1.0.0
+ (c++)"lastfm::Gender::Gender()@Base" 1.0.0
+ (c++)"lastfm::Gender::~Gender()@Base" 1.0.0
+ (c++)"lastfm::Gender::~Gender()@Base" 1.0.0
+ (c++)"lastfm::Gender::operator=(lastfm::Gender const&)@Base" 1.0.0
+ (c++)"lastfm::Library::getArtists(QString const&, int, int)@Base" 1.0.0
+ (c++)"lastfm::Library::removeAlbum(lastfm::Album const&)@Base" 1.0.0
+ (c++)"lastfm::Library::removeTrack(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Library::removeArtist(lastfm::Artist const&)@Base" 1.0.0
+ (c++)"lastfm::Library::removeScrobble(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Library::addAlbum(QList<lastfm::Album> const&)@Base" 1.0.0
+ (c++)"lastfm::Library::addTrack(lastfm::Track const&)@Base" 1.0.0
+ (c++)"lastfm::Library::addArtist(QList<lastfm::Artist> const&)@Base" 1.0.0
+ (c++)"lastfm::Library::getAlbums(QString const&, lastfm::Artist const&, int, int)@Base" 1.0.0
+ (c++)"lastfm::Library::getTracks(QString const&, lastfm::Album const&, int, int)@Base" 1.0.0
+ (c++)"lastfm::Library::getTracks(QString const&, lastfm::Artist const&, int, int)@Base" 1.0.0
+ (c++)"lastfm::Library::Library()@Base" 1.0.0
+ (c++)"lastfm::Library::Library()@Base" 1.0.0
+ (c++)"lastfm::Playlist::fetch(QUrl const&)@Base" 1.0.0
+ (c++)"lastfm::Playlist::create(QString const&, QString const&)@Base" 1.0.0
+ (c++)"lastfm::Playlist::Playlist(lastfm::Playlist const&)@Base" 1.0.0
+ (c++)"lastfm::Playlist::Playlist(int)@Base" 1.0.0
+ (c++)"lastfm::Playlist::Playlist()@Base" 1.0.0
+ (c++)"lastfm::Playlist::Playlist(lastfm::Playlist const&)@Base" 1.0.0
+ (c++)"lastfm::Playlist::Playlist(int)@Base" 1.0.0
+ (c++)"lastfm::Playlist::Playlist()@Base" 1.0.0
+ (c++)"lastfm::Playlist::~Playlist()@Base" 1.0.0
+ (c++)"lastfm::Playlist::~Playlist()@Base" 1.0.0
+ (c++)"lastfm::Playlist::operator=(lastfm::Playlist const&)@Base" 1.0.0
+ (c++)"lastfm::UserList::totalPages()@Base" 1.0.0
+ (c++)"lastfm::UserList::totalUsers()@Base" 1.0.0
+ (c++)"lastfm::UserList::currentPage()@Base" 1.0.0
+ (c++)"lastfm::UserList::usersPerPage()@Base" 1.0.0
+ (c++)"lastfm::UserList::users()@Base" 1.0.0
+ (c++)"lastfm::UserList::UserList(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::UserList::UserList(lastfm::UserList const&)@Base" 1.0.0
+ (c++)"lastfm::UserList::UserList()@Base" 1.0.0
+ (c++)"lastfm::UserList::UserList(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::UserList::UserList(lastfm::UserList const&)@Base" 1.0.0
+ (c++)"lastfm::UserList::UserList()@Base" 1.0.0
+ (c++)"lastfm::UserList::~UserList()@Base" 1.0.0
+ (c++)"lastfm::UserList::~UserList()@Base" 1.0.0
+ (c++)"lastfm::UserList::operator=(lastfm::UserList const&)@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::parse(QNetworkReply*)@Base" 1.0.3
+ (c++)"lastfm::XmlQuery::parse(QByteArray const&)@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::XmlQuery(QDomElement const&, char const*)@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::XmlQuery(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::XmlQuery()@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::XmlQuery(QDomElement const&, char const*)@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::XmlQuery(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::XmlQuery()@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::~XmlQuery()@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::~XmlQuery()@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::operator=(lastfm::XmlQuery const&)@Base" 1.0.0
+ (c++)"lastfm::platform()@Base" 1.0.0
+ (c++)"lastfm::UserAgent@Base" 1.0.0
+ (c++)"lastfm::RadioTuner::metaObject() const@Base" 1.0.0
+ (c++)"lastfm::UrlBuilder::url() const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::getSampleArtists(int) const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::isLegacyPlaylist() const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::getTagSuggestions(int) const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::rep() const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::url() const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::disco() const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::title() const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::mainstr() const@Base" 1.0.0
+ (c++)"lastfm::RadioStation::operator==(lastfm::RadioStation const&) const@Base" 1.0.0
+ (c++)"lastfm::TrackContext::type() const@Base" 1.0.0
+ (c++)"lastfm::TrackContext::values() const@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::getSuggestions() const@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::isNull() const@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::operator QString() const@Base" 1.0.0
+ (c++)"lastfm::FingerprintId::operator int() const@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::path() const@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::tracks() const@Base" 1.0.0
+ (c++)"lastfm::ScrobbleCache::username() const@Base" 1.0.0
+ (c++)"lastfm::ScrobblePoint::operator unsigned int() const@Base" 1.0.0
+ (c++)"lastfm::Audioscrobbler::metaObject() const@Base" 1.0.0
+ (c++)"lastfm::NetworkAccessManager::metaObject() const@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::metaObject() const@Base" 1.0.0
+ (c++)"lastfm::NetworkConnectionMonitor::isConnected() const@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::metaObject() const@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::isUp() const@Base" 1.0.0
+ (c++)"lastfm::InternetConnectionMonitor::isDown() const@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::message() const@Base" 1.0.0
+ (c++)"lastfm::ws::ParseError::enumValue() const@Base" 1.0.0
+ (c++)"lastfm::Tag::www(lastfm::User const&) const@Base" 1.0.0
+ (c++)"lastfm::Tag::www() const@Base" 1.0.0
+ (c++)"lastfm::Tag::name() const@Base" 1.0.0
+ (c++)"lastfm::Tag::search() const@Base" 1.0.0
+ (c++)"lastfm::Tag::operator=(lastfm::Tag const&) const@Base" 1.0.0
+ (c++)"lastfm::Tag::operator QString() const@Base" 1.0.0
+ (c++)"lastfm::Tag::operator<(lastfm::Tag const&) const@Base" 1.0.0
+ (c++)"lastfm::Url::url() const@Base" 1.0.8
+ (c++)"lastfm::Mbid::isNull() const@Base" 1.0.0
+ (c++)"lastfm::Mbid::operator QString() const@Base" 1.0.0
+ (c++)"lastfm::User::getFriends(bool, int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::getTopTags() const@Base" 1.0.0
+ (c++)"lastfm::User::canBootstrap() const@Base" 1.0.0
+ (c++)"lastfm::User::getPlaylists() const@Base" 1.0.0
+ (c++)"lastfm::User::isSubscriber() const@Base" 1.0.0
+ (c++)"lastfm::User::toDomElement(QDomDocument&) const@Base" 1.0.0
+ (c++)"lastfm::User::getInfoString() const@Base" 1.0.0
+ (c++)"lastfm::User::getNeighbours(int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::getTopArtists(QString, int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::scrobbleCount() const@Base" 1.0.0
+ (c++)"lastfm::User::dateRegistered() const@Base" 1.0.0
+ (c++)"lastfm::User::getLovedTracks(int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::getRecentTracks(int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::getRecentArtists() const@Base" 1.0.0
+ (c++)"lastfm::User::getRecentStations(int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::getRecommendedArtists(int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::getFriendsListeningNow(int, int) const@Base" 1.0.0
+ (c++)"lastfm::User::getFriendsThatListenTo(lastfm::Artist const&, int, int) const@Base" 1.0.2
+ (c++)"lastfm::User::age() const@Base" 1.0.2
+ (c++)"lastfm::User::www() const@Base" 1.0.0
+ (c++)"lastfm::User::name() const@Base" 1.0.0
+ (c++)"lastfm::User::type() const@Base" 1.0.0
+ (c++)"lastfm::User::match() const@Base" 1.0.0
+ (c++)"lastfm::User::gender() const@Base" 1.0.0
+ (c++)"lastfm::User::params(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::User::country() const@Base" 1.0.0
+ (c++)"lastfm::User::imageUrl(lastfm::AbstractType::ImageSize, bool) const@Base" 1.0.0
+ (c++)"lastfm::User::realName() const@Base" 1.0.0
+ (c++)"lastfm::User::toString() const@Base" 1.0.0
+ (c++)"lastfm::User::operator QString() const@Base" 1.0.0
+ (c++)"lastfm::User::operator==(lastfm::User const&) const@Base" 1.0.0
+ (c++)"lastfm::User::operator<(lastfm::User const&) const@Base" 1.0.0
+ (c++)"lastfm::Xspf::metaObject() const@Base" 1.0.0
+ (c++)"lastfm::Xspf::title() const@Base" 1.0.0
+ (c++)"lastfm::Xspf::tracks() const@Base" 1.0.4
+ (c++)"lastfm::Xspf::isEmpty() const@Base" 1.0.0
+ (c++)"lastfm::Album::toDomElement(QDomDocument&) const@Base" 1.0.0
+ (c++)"lastfm::Album::www() const@Base" 1.0.0
+ (c++)"lastfm::Album::mbid() const@Base" 1.0.0
+ (c++)"lastfm::Album::share(QStringList const&, QString const&, bool) const@Base" 1.0.0
+ (c++)"lastfm::Album::title() const@Base" 1.0.0
+ (c++)"lastfm::Album::artist() const@Base" 1.0.0
+ (c++)"lastfm::Album::isNull() const@Base" 1.0.0
+ (c++)"lastfm::Album::addTags(QStringList const&) const@Base" 1.0.0
+ (c++)"lastfm::Album::getInfo(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::Album::getTags() const@Base" 1.0.0
+ (c++)"lastfm::Album::imageUrl(lastfm::AbstractType::ImageSize, bool) const@Base" 1.0.0
+ (c++)"lastfm::Album::toString() const@Base" 1.0.0
+ (c++)"lastfm::Album::operator QString() const@Base" 1.0.0
+ (c++)"lastfm::Album::operator==(lastfm::Album const&) const@Base" 1.0.0
+ (c++)"lastfm::Album::operator!=(lastfm::Album const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::getSimilar(int) const@Base" 1.0.0
+ (c++)"lastfm::Track::getTopFans() const@Base" 1.0.0
+ (c++)"lastfm::Track::getTopTags() const@Base" 1.0.0
+ (c++)"lastfm::Track::loveStatus() const@Base" 1.0.0
+ (c++)"lastfm::Track::albumArtist(lastfm::Track::Corrections) const@Base" 1.0.0
+ (c++)"lastfm::Track::getBuyLinks(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::signalProxy() const@Base" 1.0.0
+ (c++)"lastfm::Track::trackNumber() const@Base" 1.0.0
+ (c++)"lastfm::Track::toDomElement(QDomDocument&) const@Base" 1.0.0
+ (c++)"lastfm::Track::fingerprintId() const@Base" 1.0.0
+ (c++)"lastfm::Track::scrobbleError() const@Base" 1.0.0
+ (c++)"lastfm::Track::durationString() const@Base" 1.0.0
+ (c++)"lastfm::Track::scrobbleStatus() const@Base" 1.0.0
+ (c++)"lastfm::Track::removeNowPlaying() const@Base" 1.0.0
+ (c++)"lastfm::Track::updateNowPlaying(int) const@Base" 1.0.0
+ (c++)"lastfm::Track::updateNowPlaying() const@Base" 1.0.0
+ (c++)"lastfm::Track::scrobbleErrorText() const@Base" 1.0.0
+ (c++)"lastfm::Track::url() const@Base" 1.0.0
+ (c++)"lastfm::Track::www() const@Base" 1.0.0
+ (c++)"lastfm::Track::mbid() const@Base" 1.0.0
+ (c++)"lastfm::Track::album(lastfm::Track::Corrections) const@Base" 1.0.0
+ (c++)"lastfm::Track::clone() const@Base" 1.0.8
+ (c++)"lastfm::Track::extra(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::isMp3() const@Base" 1.0.0
+ (c++)"lastfm::Track::share(QStringList const&, QString const&, bool) const@Base" 1.0.0
+ (c++)"lastfm::Track::title(lastfm::Track::Corrections) const@Base" 1.0.0
+ (c++)"lastfm::Track::artist(lastfm::Track::Corrections) const@Base" 1.0.0
+ (c++)"lastfm::Track::isNull() const@Base" 1.0.0
+ (c++)"lastfm::Track::params(QString const&, bool) const@Base" 1.0.0
+ (c++)"lastfm::Track::source() const@Base" 1.0.0
+ (c++)"lastfm::Track::addTags(QStringList const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::context() const@Base" 1.0.0
+ (c++)"lastfm::Track::getInfo(QObject*, char const*, QString const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::getTags() const@Base" 1.0.0
+ (c++)"lastfm::Track::isLoved() const@Base" 1.0.0
+ (c++)"lastfm::Track::isVideo() const@Base" 1.0.0
+ (c++)"lastfm::Track::duration() const@Base" 1.0.0
+ (c++)"lastfm::Track::imageUrl(lastfm::AbstractType::ImageSize, bool) const@Base" 1.0.0
+ (c++)"lastfm::Track::scrobble() const@Base" 1.0.0
+ (c++)"lastfm::Track::toString(lastfm::Track::Corrections) const@Base" 1.0.0
+ (c++)"lastfm::Track::toString(QChar const&, lastfm::Track::Corrections) const@Base" 1.0.0
+ (c++)"lastfm::Track::toString() const@Base" 1.0.0
+ (c++)"lastfm::Track::corrected() const@Base" 1.0.0
+ (c++)"lastfm::Track::isPodcast() const@Base" 1.0.0
+ (c++)"lastfm::Track::removeTag(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::timestamp() const@Base" 1.0.0
+ (c++)"lastfm::Track::operator QVariant() const@Base" 1.0.0
+ (c++)"lastfm::Track::operator==(lastfm::Track const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::operator<(lastfm::Track const&) const@Base" 1.0.0
+ (c++)"lastfm::Track::operator!=(lastfm::Track const&) const@Base" 1.0.0
+ (c++)"lastfm::Artist::getSimilar(int) const@Base" 1.0.0
+ (c++)"lastfm::Artist::getTopTags() const@Base" 1.0.0
+ (c++)"lastfm::Artist::getTopTracks() const@Base" 1.0.0
+ (c++)"lastfm::Artist::toDomElement(QDomDocument&) const@Base" 1.0.0
+ (c++)"lastfm::Artist::biographySummary() const@Base" 1.0.4
+ (c++)"lastfm::Artist::www() const@Base" 1.0.0
+ (c++)"lastfm::Artist::name() const@Base" 1.0.0
+ (c++)"lastfm::Artist::share(QStringList const&, QString const&, bool) const@Base" 1.0.0
+ (c++)"lastfm::Artist::isNull() const@Base" 1.0.0
+ (c++)"lastfm::Artist::params(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::Artist::search(int) const@Base" 1.0.0
+ (c++)"lastfm::Artist::addTags(QStringList const&) const@Base" 1.0.0
+ (c++)"lastfm::Artist::getInfo(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::Artist::getTags() const@Base" 1.0.0
+ (c++)"lastfm::Artist::imageUrl(lastfm::AbstractType::ImageSize, bool) const@Base" 1.0.0
+ (c++)"lastfm::Artist::toString() const@Base" 1.0.0
+ (c++)"lastfm::Artist::biography() const@Base" 1.0.4
+ (c++)"lastfm::Artist::getEvents(int) const@Base" 1.0.0
+ (c++)"lastfm::Artist::operator QString() const@Base" 1.0.0
+ (c++)"lastfm::Artist::operator==(lastfm::Artist const&) const@Base" 1.0.0
+ (c++)"lastfm::Artist::operator<(lastfm::Artist const&) const@Base" 1.0.0
+ (c++)"lastfm::Artist::operator!=(lastfm::Artist const&) const@Base" 1.0.0
+ (c++)"lastfm::Gender::male() const@Base" 1.0.0
+ (c++)"lastfm::Gender::known() const@Base" 1.0.0
+ (c++)"lastfm::Gender::female() const@Base" 1.0.0
+ (c++)"lastfm::Gender::toString() const@Base" 1.0.0
+ (c++)"lastfm::Playlist::id() const@Base" 1.0.0
+ (c++)"lastfm::Playlist::fetch() const@Base" 1.0.0
+ (c++)"lastfm::Playlist::addTrack(lastfm::Track const&) const@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::parseError() const@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::text() const@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::children(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::attribute(QString const&) const@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::operator QDomElement() const@Base" 1.0.0
+ (c++)"lastfm::XmlQuery::operator[](QString const&) const@Base" 1.0.0
+ (c++)"typeinfo for lastfm::RadioTuner@Base" 1.0.0
+ (c++)"typeinfo for lastfm::AbstractType@Base" 1.0.0
+ (c++)"typeinfo for lastfm::MutableTrack@Base" 1.0.0
+ (c++)"typeinfo for lastfm::Audioscrobbler@Base" 1.0.0
+ (c++)"typeinfo for lastfm::NetworkAccessManager@Base" 1.0.0
+ (c++)"typeinfo for lastfm::NetworkConnectionMonitor@Base" 1.0.0
+ (c++)"typeinfo for lastfm::InternetConnectionMonitor@Base" 1.0.0
+ (c++)"typeinfo for lastfm::ws::ParseError@Base" 1.0.0
+ (c++)"typeinfo for lastfm::User@Base" 1.0.0
+ (c++)"typeinfo for lastfm::Xspf@Base" 1.0.0
+ (c++)"typeinfo for lastfm::Album@Base" 1.0.0
+ (c++)"typeinfo for lastfm::Track@Base" 1.0.0
+ (c++)"typeinfo for lastfm::Artist@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::RadioTuner@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::AbstractType@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::MutableTrack@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::Audioscrobbler@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::NetworkAccessManager@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::NetworkConnectionMonitor@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::InternetConnectionMonitor@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::ws::ParseError@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::User@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::Xspf@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::Album@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::Track@Base" 1.0.0
+ (c++)"typeinfo name for lastfm::Artist@Base" 1.0.0
+ (c++)"vtable for lastfm::RadioTuner@Base" 1.0.0
+ (c++)"vtable for lastfm::MutableTrack@Base" 1.0.0
+ (c++)"vtable for lastfm::Audioscrobbler@Base" 1.0.0
+ (c++)"vtable for lastfm::NetworkAccessManager@Base" 1.0.0
+ (c++)"vtable for lastfm::NetworkConnectionMonitor@Base" 1.0.0
+ (c++)"vtable for lastfm::InternetConnectionMonitor@Base" 1.0.0
+ (c++)"vtable for lastfm::User@Base" 1.0.0
+ (c++)"vtable for lastfm::Xspf@Base" 1.0.0
+ (c++)"vtable for lastfm::Album@Base" 1.0.0
+ (c++)"vtable for lastfm::Track@Base" 1.0.0
+ (c++)"vtable for lastfm::Artist@Base" 1.0.0
+ (c++)"operator<<(QDebug, QNetworkReply::NetworkError)@Base" 1.0.0
+ (c++)"operator<<(QDebug, lastfm::FingerprintId)@Base" 1.0.0
+ (c++)"operator<<(QDebug, lastfm::RadioStation const&)@Base" 1.0.0
+ (c++)"operator<<(QDebug, lastfm::Track const&)@Base" 1.0.0
+ (c++)"operator<<(QDebug, lastfm::XmlQuery const&)@Base" 1.0.0
