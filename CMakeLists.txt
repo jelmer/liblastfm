@@ -5,11 +5,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 
 # general settings
 set(LASTFM_SOVERSION 1)
-set(LASTFM_VERSION "0x00010007")
+set(LASTFM_VERSION "0x00010009")
 
 set(LASTFM_MAJOR_VERSION "1")
 set(LASTFM_MINOR_VERSION "0")
-set(LASTFM_PATCH_VERSION "8")
+set(LASTFM_PATCH_VERSION "9")
 set(LASTFM_VERSION_STRING "${LASTFM_MAJOR_VERSION}.${LASTFM_MINOR_VERSION}.${LASTFM_PATCH_VERSION}")
 
 # options
@@ -35,8 +35,12 @@ if( NOT BUILD_WITH_QT4 )
 endif()
 
 if(Qt5Core_DIR)
+    set(LASTFM_LIB_VERSION_SUFFIX 5)
     message(STATUS "Found Qt5! Please keep in mind, this is highly experimental and not our main development target..")
     include_directories(${Qt5Core_INCLUDE_DIRS})
+    if(UNIX AND NOT APPLE)
+        find_package(Qt5DBus REQUIRED)
+    endif()
 
 #     macro(qt_wrap_ui)
 #         qt5_wrap_ui(${ARGN})
@@ -68,6 +72,12 @@ endif()
 if(MSVC)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t-")
 endif(MSVC)
+
+set(LASTFM_LIB_TARGET_NAME lastfm${LASTFM_LIB_VERSION_SUFFIX} CACHE
+    INTERNAL "Target name of liblastfm" FORCE)
+
+set(FINGERPRINT_LIB_TARGET_NAME lastfm_fingerprint${LASTFM_LIB_VERSION_SUFFIX} CACHE
+    INTERNAL "Target name of liblastfm_fingerprint" FORCE)
 
 # main library
 add_subdirectory(src)
