@@ -126,7 +126,7 @@ Description: Debugging symbols for the Last.fm web services library (Qt5 build)
  with their web services.
  .
  This package contains the debugging symbols for the liblastfm libraries.
- 
+
 Package: liblastfm-fingerprint1-dbg
 Architecture: any
 Multi-Arch: same
@@ -141,7 +141,7 @@ Description: Debugging symbols for the fingerprint library (Qt4 build)
  .
  This package contains the debugging symbols for the liblastfm-fingerprint
  libraries.
- 
+
 Package: liblastfm-fingerprint5-dbg
 Architecture: any
 Multi-Arch: same
