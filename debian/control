@@ -12,7 +12,7 @@ Build-Depends:
 Standards-Version: 3.9.6
 Section: libs
 Homepage: http://www.last.fm/
-Vcs-Git: git://github.com/justin-time/liblastfm.git
+Vcs-Git: https://github.com/justin-time/liblastfm.git
 Vcs-Browser: https://github.com/justin-time/liblastfm
 
 Package: liblastfm-dev
