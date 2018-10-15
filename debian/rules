@@ -40,10 +40,10 @@ override_dh_auto_install:
 	dh_auto_install -B$(QT5_PATH)
 
 override_dh_strip:
-	dh_strip -pliblastfm1 --dbg-package=liblastfm-dbg
-	dh_strip -pliblastfm5-1 --dbg-package=liblastfm5-dbg
-	dh_strip -pliblastfm-fingerprint1 --dbg-package=liblastfm-fingerprint1-dbg
-	dh_strip -pliblastfm-fingerprint5-1 --dbg-package=liblastfm-fingerprint5-dbg
+	dh_strip -pliblastfm1 --dbgsym-migration='liblastfm-dbg (<< 1.0.9-2)'
+	dh_strip -pliblastfm5-1 --dbgsym-migration='liblastfm5-dbg (<< 1.0.9-2)'
+	dh_strip -pliblastfm-fingerprint1 --dbgsym-migration='liblastfm-fingerprint1-dbg (<< 1.0.9-2)'
+	dh_strip -pliblastfm-fingerprint5-1 --dbgsym-migration='liblastfm-fingerprint5-dbg (<< 1.0.9-2)'
 
 override_dh_install:
 	dh_install --list-missing
